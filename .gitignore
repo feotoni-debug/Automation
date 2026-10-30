@@ -7,3 +7,10 @@ __pycache__
 *.pyc
 .gemini
 .vercel
+backend/vendor/deepdoctection-master/docs/_imgs/anonymization_01.png
+backend/vendor/deepdoctection-master/docs/_imgs/anonymization_02.png
+backend/vendor/deepdoctection-master/packages/dd_core/tests/assets/eval_doc/
+backend/vendor/deepdoctection-master/packages/dd_core/tests/assets/eval_doc_pred/
+backend/vendor/deepdoctection-master/packages/dd_core/tests/assets/sample_document_image.png
+backend/vendor/deepdoctection-master/packages/deepdoctection/tests/assets/deskew/
+backend/vendor/deepdoctection-master/packages/deepdoctection/tests/assets/image_dir/
