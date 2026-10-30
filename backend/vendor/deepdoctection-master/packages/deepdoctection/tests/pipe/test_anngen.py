@@ -1,0 +1,358 @@
+# -*- coding: utf-8 -*-
+# File: test_anngen.py
+
+# Copyright 2025 Dr. Janis Meyer. All rights reserved.
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+#     http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+
+"""
+Unit tests for annotation generation with DatapointManager.
+
+This module contains a suite of test cases for verifying the behavior
+of the DatapointManager from the deepdoctection library. It ensures
+correct functionality for adding, updating, removing, and managing
+image annotations, as well as handling their relationships and
+categories.
+
+"""
+
+import numpy as np
+import pytest
+
+from dd_core.datapoint import ContainerAnnotation, Image
+from dd_core.utils.object_types import RelationshipKey, get_type
+from deepdoctection.extern.base import DetectionResult
+from deepdoctection.pipe.anngen import DatapointManager
+
+
+def _detection_result(box: list[float], name: str = "text", cid: int = 1, score: float = 0.9) -> DetectionResult:
+    return DetectionResult(box=box, class_name=get_type(name), class_id=cid, score=score, absolute_coords=True)
+
+
+def test_set_image_annotation_and_cache(dp_image: Image) -> None:
+    """test set_image_annotation and cache"""
+    mgr = DatapointManager(service_id="ibw2e9f9", model_id="idc8e9f3")
+    mgr.datapoint = dp_image
+
+    ann_id = mgr.set_image_annotation(_detection_result([10, 10, 30, 30]))
+    assert ann_id is not None
+    assert ann_id in mgr._cache_anns
+    ann = mgr.get_annotation(ann_id)
+    assert ann.category_name == "text"
+    bbox = ann.bounding_box
+    assert bbox is not None
+    assert bbox.ulx == 10
+
+
+def test_set_image_annotation_with_image_and_child_relationship(dp_image: Image) -> None:
+    """test set_image_annotation with image and child relationship"""
+    mgr = DatapointManager(service_id="svc", model_id="m")
+    mgr.datapoint = dp_image
+
+    parent_id = mgr.set_image_annotation(_detection_result([5, 5, 50, 50]), to_image=True)
+    child_id = mgr.set_image_annotation(_detection_result([7, 7, 20, 20]), to_annotation_id=parent_id)
+
+    parent = mgr.datapoint.get_annotation(annotation_ids=parent_id)[0]
+    child = mgr.datapoint.get_annotation(annotation_ids=child_id)[0]
+
+    assert parent.image is not None
+    assert RelationshipKey.CHILD in parent.relationships
+    assert child_id in parent.get_relationship(RelationshipKey.CHILD)
+    assert child.annotation_id == child_id
+
+
+def test_category_and_container_annotations(dp_image: Image) -> None:
+    """test set_category_annotation and set_container_annotation"""
+    mgr = DatapointManager(service_id="svc", model_id="m")
+    mgr.datapoint = dp_image
+    ann_id = mgr.set_image_annotation(_detection_result([0, 0, 10, 10]))
+    assert ann_id is not None
+
+    mgr.set_category_annotation(get_type("test_cat_1"), 7, get_type("sub_cat_1"), ann_id, 0.5)
+    mgr.set_container_annotation(get_type("test_cat_2"), 9, get_type("sub_cat_2"), ann_id, "value_x", 0.6)
+
+    ann = mgr.get_annotation(ann_id)
+    cat_ann = ann.get_sub_category(get_type("sub_cat_1"))
+    cont_ann = ann.get_sub_category(get_type("sub_cat_2"))
+
+    assert cat_ann.category_id == 7
+    assert cat_ann.score == 0.5
+    # cont_ann is a ContainerAnnotation, not CategoryAnnotation
+    assert isinstance(cont_ann, ContainerAnnotation)
+    assert cont_ann.value == "value_x"
+    assert cont_ann.category_id == 9
+
+
+def test_summary_annotation(dp_image: Image) -> None:
+    """test set_summary_annotation"""
+    mgr = DatapointManager(service_id="svc", model_id="m")
+    mgr.datapoint = dp_image
+    ann_id = mgr.set_image_annotation(_detection_result([0, 0, 20, 20]), to_image=True)
+    assert ann_id is not None
+
+    summ_global_id = mgr.set_summary_annotation(get_type("sub_cat_1"), get_type("test_cat_1"), 1)
+    summ_local_id = mgr.set_summary_annotation(get_type("sub_cat_2"), get_type("test_cat_2"), 2, annotation_id=ann_id)
+
+    global_summ = mgr.datapoint.summary.get_sub_category(get_type("sub_cat_1"))
+    local_summ = mgr.get_annotation(ann_id).get_summary(get_type("sub_cat_2"))
+
+    assert global_summ.annotation_id == summ_global_id
+    assert local_summ.annotation_id == summ_local_id
+    assert global_summ.category_id == 1
+    assert local_summ.category_id == 2
+
+
+def test_remove_and_deactivate_annotations(dp_image: Image) -> None:
+    """test remove_annotations and deactivate_annotation"""
+    mgr = DatapointManager(service_id="svc", model_id="m")
+    mgr.datapoint = dp_image
+    a1 = mgr.set_image_annotation(_detection_result([0, 0, 10, 10]))
+    a2 = mgr.set_image_annotation(_detection_result([20, 20, 40, 40]))
+    assert a1 is not None
+    assert a2 is not None
+
+    mgr.deactivate_annotation(a1)
+    active = mgr.datapoint.get_annotation()
+    assert all(ann.annotation_id != a1 for ann in active)
+
+    mgr.remove_annotations([a2])
+    assert a2 not in mgr._cache_anns  # noqa: SLF001
+
+
+def test_errors_assert_and_type() -> None:
+    """test errors assert and type"""
+    mgr = DatapointManager(service_id="svc", model_id="m")
+    with pytest.raises(AssertionError, match="Pass datapoint"):
+        mgr.set_image_annotation(_detection_result([0, 0, 10, 10]))
+
+    # Proper setup
+    img = Image(file_name="dummy.jpg")
+    mgr.datapoint = img
+    bad_dr = DetectionResult(
+        box=("not", "a", "list"),  # type: ignore[arg-type]
+        class_name=get_type("test_cat_1"),
+        class_id=1,
+        score=0.1,
+        absolute_coords=True,
+    )
+    with pytest.raises(TypeError, match="must be of type list or np.ndarray"):
+        mgr.set_image_annotation(bad_dr)
+
+
+def test_datapoint_cache_fifo_and_bounded() -> None:
+    """test datapoint caching fifo and bounded size"""
+    mgr = DatapointManager(service_id="svc", num_cached_datapoints=2, remove_pixel_values_from_cache=False)
+
+    img1 = Image(file_name="img1.jpg", document_id="doc1", page_number=1)
+    img2 = Image(file_name="img2.jpg", document_id="doc1", page_number=2)
+    img3 = Image(file_name="img3.jpg", document_id="doc1", page_number=3)
+    img4 = Image(file_name="img4.jpg", document_id="doc1", page_number=4)
+
+    # Cache img1 when it leaves
+    mgr.datapoint = img1
+    mgr.maybe_cache_datapoint(mgr.datapoint)
+    assert list(mgr._cache_store._pages.values()) == [{1: img1.as_dict(add_extras=True)}]  # type: ignore
+
+    # Cache img2 when it leaves
+    mgr.datapoint = img2
+    mgr.maybe_cache_datapoint(mgr.datapoint)
+    assert list(mgr._cache_store._pages.values()) == [  # type: ignore
+        {1: img1.as_dict(add_extras=True), 2: img2.as_dict(add_extras=True)}
+    ]  # noqa: SLF001
+
+    # Cache img3 when it leaves, img1 gets evicted (max_pages=2)
+    mgr.datapoint = img3
+    mgr.maybe_cache_datapoint(mgr.datapoint)
+    assert list(mgr._cache_store._pages.values()) == [  # type: ignore
+        {2: img2.as_dict(add_extras=True), 3: img3.as_dict(add_extras=True)}
+    ]  # noqa: SLF001
+
+    # Cache img4 when it leaves, img2 gets evicted
+    mgr.datapoint = img4
+    mgr.maybe_cache_datapoint(mgr.datapoint)
+    assert list(mgr._cache_store._pages.values()) == [  # type: ignore
+        {3: img3.as_dict(add_extras=True), 4: img4.as_dict(add_extras=True)}
+    ]  # noqa: SLF001
+
+
+def test_datapoint_cache_does_not_store_none() -> None:
+    """test datapoint caching does not store None"""
+    mgr = DatapointManager(service_id="svc", num_cached_datapoints=2)
+    assert mgr._datapoint is None  # noqa: SLF001
+    assert len(mgr._cache_store._pages) == 0  # type: ignore  # noqa: SLF001
+
+
+def test_datapoint_cache_calls_pixel_cleanup_when_enabled() -> None:
+    """test datapoint caching calls pixel cleanup when enabled"""
+    mgr = DatapointManager(service_id="svc", num_cached_datapoints=1, remove_pixel_values_from_cache=True)
+
+    img1 = Image(file_name="img1.jpg", document_id="doc1", page_number=1)
+    img2 = Image(file_name="img2.jpg", document_id="doc1", page_number=2)
+    img1.image = np.ones([400, 600, 3], dtype=np.float32)
+    img2.image = np.ones([400, 600, 3], dtype=np.float32)
+
+    # Cache img1 when it leaves - should clear pixel values
+    mgr.datapoint = img1
+    mgr.maybe_cache_datapoint(mgr.datapoint)
+    assert list(mgr._cache_store._pages.values()) == [  # type: ignore  # noqa: SLF001
+        {1: img1.as_dict(add_extras=True)}
+    ]
+    assert img1.image is None
+
+    # Cache img2 when it leaves, img1 gets evicted (max_pages=1)
+    mgr.datapoint = img2
+    mgr.maybe_cache_datapoint(mgr.datapoint)
+    assert list(mgr._cache_store._pages.values()) == [{2: img2.as_dict(add_extras=True)}]  # noqa: SLF001
+    assert img2.image is None
+
+
+def test_datapoint_cache_no_pixel_cleanup_when_disabled() -> None:
+    """test datapoint caching does not call pixel cleanup when disabled"""
+    mgr = DatapointManager(service_id="svc", num_cached_datapoints=1, remove_pixel_values_from_cache=False)
+
+    img1 = Image(file_name="img1.jpg", document_id="doc1", page_number=1)
+    img2 = Image(file_name="img2.jpg", document_id="doc1", page_number=2)
+
+    img1.image = np.ones([400, 600, 3], dtype=np.float32)
+    img2.image = np.ones([400, 600, 3], dtype=np.float32)
+
+    # Cache img1 when it leaves - should NOT clear pixel values
+    mgr.datapoint = img1
+    mgr.maybe_cache_datapoint(mgr.datapoint)
+
+    # Now manually clear img1.image to match the expected cached dict
+    img1.image = None
+    img1_dict = img1.as_dict(add_extras=True)
+    assert list(mgr._cache_store._pages.values()) == [{1: img1_dict}]  # type: ignore  # noqa: SLF001
+
+    # Cache img2 when it leaves, img1 gets evicted (max_pages=1)
+    mgr.datapoint = img2
+    mgr.maybe_cache_datapoint(mgr.datapoint)
+    img2.image = None
+    img2_dict = img2.as_dict(add_extras=True)
+    assert list(mgr._cache_store._pages.values()) == [{2: img2_dict}]  # type: ignore  # noqa: SLF001
+
+
+def test_num_cached_datapoints_must_be_non_negative() -> None:
+    """test num_cached_datapoints must be non-negative"""
+    with pytest.raises(ValueError, match="num_cached_datapoints must be >= 0"):
+        DatapointManager(service_id="svc", num_cached_datapoints=-1)
+
+
+def test_get_cached_datapoints_returns_last_k_without_mutating_queue() -> None:
+    """get_cached_datapoints returns last k elements and must not mutate the deque"""
+    mgr = DatapointManager(service_id="svc", num_cached_datapoints=3, remove_pixel_values_from_cache=False)
+
+    img1 = Image(file_name="img1.jpg", document_id="7dfc5316-cf09-3930-9932-d8803ed0bae4", page_number=1)
+    img2 = Image(file_name="img2.jpg", document_id="7dfc5316-cf09-3930-9932-d8803ed0bae4", page_number=2)
+    img3 = Image(file_name="img3.jpg", document_id="7dfc5316-cf09-3930-9932-d8803ed0bae4", page_number=3)
+    img4 = Image(file_name="img4.jpg", document_id="7dfc5316-cf09-3930-9932-d8803ed0bae4", page_number=4)
+
+    # Cache datapoints as they leave
+    mgr.datapoint = img1
+    mgr.maybe_cache_datapoint(mgr.datapoint)
+    mgr.datapoint = img2
+    mgr.maybe_cache_datapoint(mgr.datapoint)
+    mgr.datapoint = img3
+    mgr.maybe_cache_datapoint(mgr.datapoint)
+    mgr.datapoint = img4
+    # img4 is current, not cached yet in this test scenario
+    # Cache contains [img1, img2, img3]
+
+    assert list(mgr._cache_store._pages.values()) == [  # type: ignore
+        {1: img1.as_dict(add_extras=True), 2: img2.as_dict(add_extras=True), 3: img3.as_dict(add_extras=True)}
+    ]  # noqa: SLF001
+
+    before = list(mgr._cache_store._pages.values())  # type: ignore
+    got = mgr.get_cached_datapoints(2)
+
+    assert list(got) == [img3, img2]
+    assert list(mgr._cache_store._pages.values()) == before  # type: ignore
+
+
+def test_get_cached_datapoints_last_k_exceeds_size_returns_all_and_does_not_mutate() -> None:
+    """If last_k > len(cache), return all cached datapoints, without mutation"""
+    mgr = DatapointManager(service_id="svc", num_cached_datapoints=3, remove_pixel_values_from_cache=False)
+
+    img1 = Image(file_name="img1.jpg", document_id="7dfc5316-cf09-3930-9932-d8803ed0bae4", page_number=1)
+    img2 = Image(file_name="img2.jpg", document_id="7dfc5316-cf09-3930-9932-d8803ed0bae4", page_number=2)
+    img3 = Image(file_name="img3.jpg", document_id="7dfc5316-cf09-3930-9932-d8803ed0bae4", page_number=3)
+
+    # Cache datapoints as they leave
+    mgr.datapoint = img1
+    mgr.maybe_cache_datapoint(mgr.datapoint)
+    mgr.datapoint = img2
+    mgr.maybe_cache_datapoint(mgr.datapoint)
+    mgr.datapoint = img3
+    # img3 is current, not cached yet in this test scenario
+    # Cache contains [img1, img2]
+
+    assert list(mgr._cache_store._pages.values()) == [  # type: ignore
+        {1: img1.as_dict(add_extras=True), 2: img2.as_dict(add_extras=True)}
+    ]  # noqa: SLF001
+
+    before = list(mgr._cache_store._pages.values())  # type: ignore
+    got = mgr.get_cached_datapoints(999)
+
+    assert list(got) == [img2, img1]
+    assert list(mgr._cache_store._pages.values()) == before  # type: ignore
+
+
+def test_get_cached_datapoints_zero_returns_empty_and_does_not_mutate() -> None:
+    """last_k == 0 returns empty snapshot and must not mutate the cache"""
+    mgr = DatapointManager(service_id="svc", num_cached_datapoints=2, remove_pixel_values_from_cache=False)
+
+    img1 = Image(file_name="img1.jpg", document_id="7dfc5316-cf09-3930-9932-d8803ed0bae4", page_number=1)
+    img2 = Image(file_name="img2.jpg", document_id="7dfc5316-cf09-3930-9932-d8803ed0bae4", page_number=2)
+
+    # Cache datapoints as they leave
+    mgr.datapoint = img1
+    mgr.maybe_cache_datapoint(mgr.datapoint)
+    mgr.datapoint = img2
+    # img2 is current, not cached yet in this test scenario
+    # Cache contains [img1]
+
+    assert list(mgr._cache_store._pages.values()) == [  # type: ignore  # noqa: SLF001
+        {1: img1.as_dict(add_extras=True)}
+    ]
+
+    before = list(mgr._cache_store._pages.values())  # type: ignore
+    got = mgr.get_cached_datapoints(0)
+
+    assert not list(got)
+    assert list(mgr._cache_store._pages.values()) == before  # type: ignore
+
+
+def test_get_cached_datapoints_negative_raises_and_does_not_mutate() -> None:
+    """last_k < 0 raises and must not mutate the cache"""
+    mgr = DatapointManager(service_id="svc", num_cached_datapoints=2, remove_pixel_values_from_cache=False)
+
+    img1 = Image(file_name="img1.jpg", document_id="7dfc5316-cf09-3930-9932-d8803ed0bae4", page_number=1)
+    img2 = Image(file_name="img2.jpg", document_id="7dfc5316-cf09-3930-9932-d8803ed0bae4", page_number=2)
+
+    # Cache datapoints as they leave
+    mgr.datapoint = img1
+    mgr.maybe_cache_datapoint(mgr.datapoint)
+    mgr.datapoint = img2
+    # img2 is current, not cached yet in this test scenario
+    # Cache contains [img1]
+
+    assert list(mgr._cache_store._pages.values()) == [  # type: ignore  # noqa: SLF001
+        {1: img1.as_dict(add_extras=True)}
+    ]
+
+    before = list(mgr._cache_store._pages.values())  # type: ignore
+    with pytest.raises(ValueError, match="last_k must be >= 0"):
+        mgr.get_cached_datapoints(-1)
+
+    assert list(mgr._cache_store._pages.values()) == before  # type: ignore

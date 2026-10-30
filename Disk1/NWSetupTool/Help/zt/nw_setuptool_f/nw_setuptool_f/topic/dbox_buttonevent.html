@@ -1,0 +1,251 @@
+<!DOCTYPE html><html lang="zh-tw">
+  <head>
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+  	<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+    <meta name="docName" content=""/>
+    <meta name="rootrelpath" content="../../"/>
+    <link rel="stylesheet" href="../../css/ssseries.css"/>
+    <link rel="stylesheet" href="../../css/commonltr.css"/>
+    <link rel="stylesheet" href="../../css/common.css"/>
+    <link rel="stylesheet" href="../../css/common4pc.css"/>
+    <link rel="stylesheet" href="../../css/ditahtml.css"/>
+    <link rel="stylesheet" href="../../css/style.css"/>
+    <link rel="stylesheet" href="../../css/custom.css"/>
+    <script src="../../js/jquery-3.7.1.min.js"></script>
+    <script src="../../js/jquery.cookie-1.4.1.min.js"></script>
+    <script src="../../js/jquery.highlight-4.js"></script>
+    <script src="../../js/jquery.url.js"></script>
+    <script src="../../js/jquery.biggerlink.js"></script>
+    <script src="../../js/storage.js"></script>
+    <script src="../../js/apply_biggerlink.js"></script>
+    <script src="../../js/search.js"></script>
+    <script src="../js/tocdata.js"></script>
+    <script src="../js/searchdata.js"></script>
+    <script src="../js/commoninfo.js"></script>
+    <script src="../../js/script_common.js"></script>
+    <script src="../../js/script_content.js"></script>
+    <noscript>
+        <link rel="stylesheet" href="../../css/noscript.css"/>
+    </noscript>
+    <title>[按鈕設定] 視窗</title>
+  </head>
+  <body>
+    <div id="top">
+      <!-- header ==================================================================== -->
+      <header id="header" class="clearfix">
+        <h1>
+            
+        </h1>
+        <ul id="headerNaviSp">
+          <li id="backBtnSp"><img src="../../images_sys/b_back@2x.png" alt="BACK" width="37" height="38"/></li>
+          <li id="menuBtnSp"><img src="../../images_sys/b_menu@2x.png" alt="MENU" width="37" height="38"/></li>
+          <li id="searchBtnSp"><img src="../../images_sys/b_search@2x.png" alt="SEARCH" width="37" height="38"/></li>
+          <li id="modelSelectLst"><div id="selectModelLstSp"></div></li>
+        </ul>
+        <div class="clear spOnly"></div>
+        <ul id="pr" class="clearfix">
+          <li>
+            <input id="searchText" type="text" value="" class="searchBox" maxlength="200"/>
+            <input id="searchExecBtn" name="search" type="submit" value="搜尋" class="searchBtn"/>
+          </li>
+          <li id="suggestArea">
+            <div id="suggest"></div>
+          </li>
+        </ul>
+        <ul class="quickLink clearfix"><li xmlns="http://www.w3.org/1999/xhtml" class="li"><a class="xref" href="support.html">支援的掃描器機型</a></li></ul>
+        <nav id="menuSp">
+          <ul id="languageNavi">
+            <li><a href="#">Language</a></li>
+          </ul>
+          <noscript>
+            <ul id="headerNavi" class="clearfix">
+                <li id="staticLinks"><a id="njsTableOfContents" style="display:inline" href="../../toc.html"><span>目錄</span></a></li>
+            </ul>
+          </noscript>
+        </nav>
+      </header>
+      <!-- /header ==================================================================== -->
+
+      <!-- main ==================================================================== -->
+      <div id="areaMain" class="clearfix">
+        <div id="sub">
+          <div id="gNaviSp"></div>
+          <nav id="menuPc"></nav>
+        </div>
+        <!-- / #sub -->
+
+        <div id="main">
+          <div id="contents">
+            <div class="tRight">
+            </div>
+            <article>
+
+	<h1 xmlns="http://www.w3.org/1999/xhtml" class="title topictitle1" id="ariaid-title1">[按鈕設定] 視窗</h1>
+
+	
+	<div xmlns="http://www.w3.org/1999/xhtml" class="body conbody"><div class="abstract">
+		 <span class="shortdesc">指定在按下掃描器上的按鈕時所啟動的影像掃描應用程式。</span>
+
+	</div>
+
+		<div class="section">
+				<dl class="dl">
+					
+						<dt class="dt dlterm">選擇事件</dt>
+
+						<dd class="dd"><p class="p">由按鈕清單中選擇按鈕，以指定在按下掃描器上的按鈕時所啟動的影像掃描應用程式。</p>
+
+									<div class="note_box tipbox"><div class="note_title tiptitle"><span>提示</span></div><div class="note tip">
+							<ul class="ul">
+								<li class="li"><p class="p">按鈕清單中顯示的按鈕名稱依據掃描器機型而定。</p>
+
+										<p class="p">關於詳細資料，請參閱掃描器的《操作指南》。</p>
+</li>
+
+								<li class="li">
+									<p class="p">若使用 Button Event Manager 指定掃描器按鈕的影像掃描應用程式，請參閱下述。</p>
+
+									<ul class="ul">
+										<li class="li"><p class="p">PaperStream ClickScan 執行中</p>
+
+												<p class="p">無論使用 Button Event Manager 為掃描按鈕指定何種設定，在按下掃描器上的掃描按鈕時，將會使用 PaperStream ClickScan 執行掃描。</p>
+
+												<p class="p">若要 (在按下掃描器上的掃描按鈕時) 啟動其他影像掃描應用程式，請結束 PaperStream ClickScan。關於詳細資訊，請參閱 PaperStream ClickScan 說明。</p>
+
+										</li>
+
+										<li class="li"><p class="p">PaperStream ClickScan 非執行中但已安裝 PaperStream Capture 時</p>
+
+												<p class="p">掃描器上的掃描按鈕將自動設定為 PaperStream Capture。</p>
+
+												<p class="p">若不將掃描器上的掃描按鈕設定為 PaperStream Capture，請在 [操作] 中選擇 [無] 或 [執行以下程式]。</p>
+
+										<p class="p">關於如何設定掃描器上的按鈕的詳細資訊，請參閱 <a class="xref" href="opr_buttonevent.html">指定掃描器上的按鈕設定</a>。</p>
+</li>
+
+									</ul>
+
+								</li>
+
+							</ul>
+
+									</div></div>
+
+						</dd>
+
+					
+				</dl>
+
+			<dl class="dl">
+				
+					<dt class="dt dlterm">操作</dt>
+
+					<dd class="dd">
+						<dl class="dl">
+							
+								<dt class="dt dlterm">啟動 [PaperStream Capture]</dt>
+
+								<dd class="dd"><p class="p">選擇此項可啟動 PaperStream Capture。</p>
+
+										<p class="p">依據您使用的掃描器而定，文件設定檔名稱將顯示於觸控螢幕或操作面板上。</p>
+
+										<p class="p">關於詳細資訊，請參閱《PaperStream Capture 說明》。</p>
+
+								</dd>
+
+							
+							
+								<dt class="dt dlterm">執行以下程式</dt>
+
+								<dd class="dd">
+									<p class="p">選擇此項可執行您自選的程式。</p>
+
+									<p class="p">請指定要執行程式的路徑。</p>
+
+									<dl class="dl">
+										
+											<dt class="dt dlterm">[瀏覽] 按鈕</dt>
+
+											<dd class="dd"><p class="p">會顯示 [請選擇應用程式] 視窗。</p>
+
+												<p class="p">請指定要執行的程式。</p>
+
+											</dd>
+
+										
+										
+											<dt class="dt dlterm">參數</dt>
+
+											<dd class="dd"><p class="p">最多可將參數指定為 255 個字元。</p>
+
+												<p class="p">關於參數的詳細資訊，請參閱要執行程式的手冊。</p>
+
+											</dd>
+
+										
+									</dl>
+
+								</dd>
+
+							
+							
+								<dt class="dt dlterm">無</dt>
+
+								<dd class="dd"><p class="p">選擇此項將不執行任何程式。</p>
+</dd>
+
+							
+						</dl>
+
+					</dd>
+
+				
+				
+					<dt class="dt dlterm">[確定] 按鈕</dt>
+
+					<dd class="dd"><p class="p">關閉視窗。</p>
+
+						<p class="p">變更已儲存。</p>
+
+					</dd>
+
+				
+				
+					<dt class="dt dlterm">[取消] 按鈕</dt>
+
+					<dd class="dd"><p class="p">關閉視窗。</p>
+
+						<p class="p">變更未儲存。</p>
+
+					</dd>
+
+				
+			</dl>
+
+		</div>
+
+	</div>
+
+</article>
+          </div>
+        </div>
+        <!-- / #main -->
+      </div>
+      <!-- /main ==================================================================== -->
+
+      <!-- footer ==================================================================== -->
+      <footer id="footer">
+        <ul id="footerNavi" style="display:none"></ul>
+        <ul id="pagetop">
+          <li><a href="#top"><img src="../../images_sys/b_pagetop@2x.png" alt="TOP" width="44" height="44"/></a></li>
+        </ul>
+        <div class="tRight">
+        </div>
+        <p id="copyright"><small>&copy; PFU Limited 2021-2025</small></p>
+      </footer>
+      <!-- /footer ==================================================================== -->
+    </div>
+    <!-- /page -->
+  </body>
+</html>

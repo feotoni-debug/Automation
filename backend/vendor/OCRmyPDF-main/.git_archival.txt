@@ -1,0 +1,4 @@
+node: b457e9efa68c3a46be2470ffb222ed1bccc4dcbc
+node-date: 2026-10-25T08:47:33+01:00
+describe-name: v17.13.0-14-gb457e9efa
+ref-names: HEAD -> main

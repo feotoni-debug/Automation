@@ -1,0 +1,16 @@
+fastapi>=0.110
+uvicorn[standard]>=0.29
+python-multipart>=0.0.9
+numpy>=1.24
+opencv-python-headless>=4.8
+pymupdf>=1.24
+watchdog>=4.0
+
+# --- Opcional: DocTamper (detecção de adulteração de texto) ---
+# Requer GPU NVIDIA e os pesos do modelo (veja backend/README.md).
+# torch
+# torchvision
+# segmentation-models-pytorch
+# timm
+# jpegio
+# albumentations

@@ -1,0 +1,11 @@
+{
+    "whitelist":
+    {
+        "dnn_Net": ["setInput", "forward", "setPreferableBackend","getUnconnectedOutLayersNames"],
+        "": ["readNetFromONNX", "readNetFromTFLite", "readNet", "blobFromImage"]
+    },
+    "namespace_prefix_override":
+    {
+        "dnn": ""
+    }
+}

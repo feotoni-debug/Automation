@@ -1,0 +1,244 @@
+<!DOCTYPE html><html lang="zh-tw">
+  <head>
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+  	<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+    <meta name="docName" content=""/>
+    <meta name="rootrelpath" content="../../"/>
+    <link rel="stylesheet" href="../../css/ssseries.css"/>
+    <link rel="stylesheet" href="../../css/commonltr.css"/>
+    <link rel="stylesheet" href="../../css/common.css"/>
+    <link rel="stylesheet" href="../../css/common4pc.css"/>
+    <link rel="stylesheet" href="../../css/ditahtml.css"/>
+    <link rel="stylesheet" href="../../css/style.css"/>
+    <link rel="stylesheet" href="../../css/custom.css"/>
+    <script src="../../js/jquery-3.7.1.min.js"></script>
+    <script src="../../js/jquery.cookie-1.4.1.min.js"></script>
+    <script src="../../js/jquery.highlight-4.js"></script>
+    <script src="../../js/jquery.url.js"></script>
+    <script src="../../js/jquery.biggerlink.js"></script>
+    <script src="../../js/storage.js"></script>
+    <script src="../../js/apply_biggerlink.js"></script>
+    <script src="../../js/search.js"></script>
+    <script src="../js/tocdata.js"></script>
+    <script src="../js/searchdata.js"></script>
+    <script src="../js/commoninfo.js"></script>
+    <script src="../../js/script_common.js"></script>
+    <script src="../../js/script_content.js"></script>
+    <noscript>
+        <link rel="stylesheet" href="../../css/noscript.css"/>
+    </noscript>
+    <title>無法由影像掃描應用程式執行掃描</title>
+  </head>
+  <body>
+    <div id="top">
+      <!-- header ==================================================================== -->
+      <header id="header" class="clearfix">
+        <h1>
+            
+        </h1>
+        <ul id="headerNaviSp">
+          <li id="backBtnSp"><img src="../../images_sys/b_back@2x.png" alt="BACK" width="37" height="38"/></li>
+          <li id="menuBtnSp"><img src="../../images_sys/b_menu@2x.png" alt="MENU" width="37" height="38"/></li>
+          <li id="searchBtnSp"><img src="../../images_sys/b_search@2x.png" alt="SEARCH" width="37" height="38"/></li>
+          <li id="modelSelectLst"><div id="selectModelLstSp"></div></li>
+        </ul>
+        <div class="clear spOnly"></div>
+        <ul id="pr" class="clearfix">
+          <li>
+            <input id="searchText" type="text" value="" class="searchBox" maxlength="200"/>
+            <input id="searchExecBtn" name="search" type="submit" value="搜尋" class="searchBtn"/>
+          </li>
+          <li id="suggestArea">
+            <div id="suggest"></div>
+          </li>
+        </ul>
+        <ul class="quickLink clearfix"><li xmlns="http://www.w3.org/1999/xhtml" class="li"><a class="xref" href="support.html">支援的掃描器機型</a></li></ul>
+        <nav id="menuSp">
+          <ul id="languageNavi">
+            <li><a href="#">Language</a></li>
+          </ul>
+          <noscript>
+            <ul id="headerNavi" class="clearfix">
+                <li id="staticLinks"><a id="njsTableOfContents" style="display:inline" href="../../toc.html"><span>目錄</span></a></li>
+            </ul>
+          </noscript>
+        </nav>
+      </header>
+      <!-- /header ==================================================================== -->
+
+      <!-- main ==================================================================== -->
+      <div id="areaMain" class="clearfix">
+        <div id="sub">
+          <div id="gNaviSp"></div>
+          <nav id="menuPc"></nav>
+        </div>
+        <!-- / #sub -->
+
+        <div id="main">
+          <div id="contents">
+            <div class="tRight">
+            </div>
+            <article>
+
+	<h1 xmlns="http://www.w3.org/1999/xhtml" class="title topictitle1" id="ariaid-title1">無法由影像掃描應用程式執行掃描</h1>
+
+	<div xmlns="http://www.w3.org/1999/xhtml" class="body conbody">
+		<div class="section">
+			<dl class="dl">
+				
+					<dt class="dt dlterm">檢查以下事項：</dt>
+
+					<dd class="dd">
+						<ul class="ul">
+							<li class="li"><p class="p"><a class="xref" href="trouble_04.html#trouble_04__t01">WinHTTP 的 Proxy 設定是否已設定 Proxy 伺服器？</a></p>
+</li>
+
+						</ul>
+
+					</dd>
+
+				
+			</dl>
+
+		</div>
+
+		<div class="section" id="trouble_04__t01"><h2 class="title sectiontitle">WinHTTP 的 Proxy 設定是否已設定 Proxy 伺服器？</h2>
+		
+			<dl class="dl">
+				
+					<dt class="dt dlterm">解決方案</dt>
+
+					<dd class="dd"><p class="p">變更 WinHTTP 的 Proxy 設定以便由電腦存取掃描器。</p>
+
+							<p class="p">按照以下程序變更 WinHTTP 的 Proxy 設定。</p>
+
+						<ol class="ol">
+							<li class="li"><p class="p">以具有該電腦管理員權限的身分，啟動命令提示字元視窗。</p>
+</li>
+
+							<li class="li"><p class="p">執行以下命令，以檢查 Proxy 伺服器名稱以及將使用的連接埠號碼。</p>
+
+									<p class="p">netsh winhttp show proxy</p>
+
+								<div class="note_box tipbox"><div class="note_title tiptitle"><span>提示</span></div><div class="note tip">
+										<p class="p">Proxy 伺服器名稱以及將使用的連接埠號碼會顯示如下。</p>
+
+										<p class="p">"Proxy 伺服器名稱：連接埠號碼"</p>
+
+								</div></div>
+
+							</li>
+
+							<li class="li"><p class="p">執行以下其中一個命令。</p>
+
+										<ul class="ul">
+											<li class="li"><p class="p">已設定 Proxy 伺服器時</p>
+
+													<p class="p">將設定指定為不使用 Proxy 伺服器即可由電腦存取掃描器。</p>
+
+															
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" class="table" frame="border" border="1" rules="all"><colgroup><col/></colgroup><tbody class="tbody">
+																			<tr class="row">
+																				<td class="entry cellrowborder" style="vertical-align:top;">
+																							<p class="p">netsh winhttp set proxy proxy-server="XXXXXX:YYYY" bypass-list=ZZZ.ZZZ.ZZZ.ZZZ</p>
+
+																				</td>
+
+																			</tr>
+
+																		</tbody>
+</table>
+</div>
+
+															<p class="p">XXXXXX：Proxy 伺服器名稱</p>
+
+															<p class="p">YYYY：將使用的連接埠號碼</p>
+
+															<p class="p">ZZZ.ZZZ.ZZZ.ZZZ：掃描器的 IP 位址 (*1)(*2)</p>
+
+											</li>
+
+											<li class="li"><p class="p">未設定 Proxy 伺服器時</p>
+
+													<p class="p">若重設設定，電腦或許就可存取掃描器。</p>
+
+													
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" class="table" frame="border" border="1" rules="all"><colgroup><col/></colgroup><tbody class="tbody">
+																	<tr class="row">
+																		<td class="entry cellrowborder" style="vertical-align:top;">
+																					<p class="p">netsh winhttp reset proxy</p>
+
+																		</td>
+
+																	</tr>
+
+																</tbody>
+</table>
+</div>
+
+											</li>
+
+										</ul>
+
+							</li>
+
+						</ol>
+
+					</dd>
+
+						<dd class="dd ddexpand">
+							<table class="dltable"><tbody>
+								<tr>
+									<td valign="top" class="dltable_dt">*1：</td>
+
+									<td valign="top"><p class="p">您可在掃描器的觸控螢幕或操作面板上，或在 IP 位址設定工具中檢查掃描器的 IP 位址。</p>
+
+									</td>
+
+								</tr>
+								<tr>
+									<td valign="top" class="dltable_dt">*2：</td>
+
+									<td valign="top"><p class="p">此處以 IPv4 位址的格式為範例。</p>
+
+											<p class="p">若為 IPv6 位址，將會使用以下格式。</p>
+
+											<p class="p">ZZZZ:ZZZZ:ZZZZ:ZZZZ:ZZZZ:ZZZZ:ZZZZ:ZZZZ</p>
+
+									</td>
+
+								</tr>
+							</tbody></table>
+
+						</dd>
+
+				
+			</dl>
+
+		</div>
+
+	</div>
+
+</article>
+          </div>
+        </div>
+        <!-- / #main -->
+      </div>
+      <!-- /main ==================================================================== -->
+
+      <!-- footer ==================================================================== -->
+      <footer id="footer">
+        <ul id="footerNavi" style="display:none"></ul>
+        <ul id="pagetop">
+          <li><a href="#top"><img src="../../images_sys/b_pagetop@2x.png" alt="TOP" width="44" height="44"/></a></li>
+        </ul>
+        <div class="tRight">
+        </div>
+        <p id="copyright"><small>&copy; PFU Limited 2021-2025</small></p>
+      </footer>
+      <!-- /footer ==================================================================== -->
+    </div>
+    <!-- /page -->
+  </body>
+</html>

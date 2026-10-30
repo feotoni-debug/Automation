@@ -1,0 +1,9 @@
+backend
+backend/**
+node_modules
+.venv
+.git
+.gemini
+dist
+*.py
+*.bat

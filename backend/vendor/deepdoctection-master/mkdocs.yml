@@ -1,0 +1,126 @@
+# yaml-language-server: $schema=https://squidfunk.github.io/mkdocs-material/schema.json
+site_url: https://example.com/
+site_name: deepdoctection
+site_author: Dr. Janis Meyer
+site_description: A Document AI package
+repo_url: https://github.com/deepdoctection/deepdoctection
+edit_uri: blob/main/docs
+
+theme:
+  name: material
+  custom_dir: docs/assets
+  palette:
+    primary: blue
+    accent: indigo
+  logo: ./tutorials/_imgs/dd_logo_only.png
+  features:
+    - navigation.tabs
+    - navigation.indexes
+    - content.code.copy
+    - content.code.annotate
+    - header.autohide
+    - content.tabs.link
+    - announce.dismiss
+  icon:
+    annotation: material/plus-circle
+    admonition:
+      note: fontawesome/solid/exclamation
+      info: fontawesome/solid/circle-info
+      tip: fontawesome/solid/bullhorn
+      warning: fontawesome/solid/triangle-exclamation
+      failure: fontawesome/solid/bomb
+      example: fontawesome/solid/flask
+extra_css:
+  - assets/styles/custom.css
+markdown_extensions:
+  - toc:
+      permalink: true
+  - tables
+  - pymdownx.highlight:
+      anchor_linenums: true
+      line_spans: __span
+      pygments_lang_class: true
+  - admonition
+  - pymdownx.details
+  - pymdownx.superfences
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - pymdownx.superfences
+  - attr_list
+  - md_in_html
+  - pymdownx.tabbed:
+      slugify: !!python/object/apply:pymdownx.slugs.slugify
+        kwds:
+          case: lower
+      alternate_style: true
+  - pymdownx.emoji:
+      emoji_index: !!python/name:materialx.emoji.twemoji
+      emoji_generator: !!python/name:materialx.emoji.to_svg
+
+
+nav:
+    - index.md
+    - install.md
+    - Tutorials:
+          - Get Started: ./tutorials/Analyzer_Get_Started.md
+          - More On Parsing: ./tutorials/Analyzer_More_On_Parsing.md
+          - Configuration: ./tutorials/Analyzer_Configuration.md
+          - Configuration Samples: ./tutorials/Analyzer_Configuration_Samples.md
+          - Model Registry And New Models: ./tutorials/Analyzer_Model_Registry_And_New_Models.md
+          - Doclaynet With A YOLO Predictor: ./tutorials/Analyzer_Doclaynet_With_YOLO.md
+          - Anonymization: ./tutorials/Anonymization.md
+          - Pipelines: ./tutorials/Pipelines.md
+    - Concepts:
+          - Settings: ./concepts/Base_Settings.md
+          - Data Structures: ./concepts/Data_Structure.md
+          - Datasets: ./concepts/Datasets.md
+          - Architecture: ./concepts/Architecture.md
+          - Evaluation: ./concepts/Evaluation.md
+          - Training And Fine Tuning: ./concepts/Training_And_Fine_Tuning.md
+    - Projects:
+          - Training A Model On Several Datasets: ./projects/Project_Training.md
+          #- Custom Pipeline: ./projects/Custom_Pipeline.md
+          - LayoutLM For Sequence Classification: ./projects/LayoutLM_For_Seq_Class.md
+          - LayoutLM For Custom Token Classification: ./projects/LayoutLM_For_Custom_Token_Class.md
+    - API:
+        - Analyzer: ./modules/deepdoctection.analyzer.md
+        - Dataflow: ./modules/dd_core.dataflow.md
+        - Datapoint: ./modules/dd_core.datapoint.md
+        - Datasets: ./modules/dd_datasets.md
+        - Datasets Instances: ./modules/dd_datasets.instances.md
+        - Eval: ./modules/deepdoctection.eval.md
+        - Extern: ./modules/deepdoctection.extern.md
+        - Mapper: ./modules/dd_core.mapper.md
+        - Pipe: ./modules/deepdoctection.pipe.md
+        - Train: ./modules/deepdoctection.train.md
+        - Utils: ./modules/dd_core.utils.md
+
+
+plugins:
+    - search:
+        lang: en
+    - mkdocstrings:
+        handlers:
+          python:
+            selection:
+              filters:
+                - "^_[^_]"
+            paths:
+              - packages/dd_core/src
+              - packages/dd_datasets/src
+              - packages/deepdoctection/src
+            options:
+              parameter_headings: true
+              line_length: 120
+              docstring_style: google
+              merge_init_into_class: true
+              heading_level: 2
+              show_symbol_type_heading: true
+              show_signature: false
+
+
+# to watch lib files in mkdocs server. Uncomment, if update docs locally
+watch:
+  - packages/dd_core/src
+  - packages/dd_datasets/src
+  - packages/deepdoctection/src

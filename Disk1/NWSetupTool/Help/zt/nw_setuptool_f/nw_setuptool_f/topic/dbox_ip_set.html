@@ -1,0 +1,395 @@
+<!DOCTYPE html><html lang="zh-tw">
+  <head>
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+  	<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+    <meta name="docName" content=""/>
+    <meta name="rootrelpath" content="../../"/>
+    <link rel="stylesheet" href="../../css/ssseries.css"/>
+    <link rel="stylesheet" href="../../css/commonltr.css"/>
+    <link rel="stylesheet" href="../../css/common.css"/>
+    <link rel="stylesheet" href="../../css/common4pc.css"/>
+    <link rel="stylesheet" href="../../css/ditahtml.css"/>
+    <link rel="stylesheet" href="../../css/style.css"/>
+    <link rel="stylesheet" href="../../css/custom.css"/>
+    <script src="../../js/jquery-3.7.1.min.js"></script>
+    <script src="../../js/jquery.cookie-1.4.1.min.js"></script>
+    <script src="../../js/jquery.highlight-4.js"></script>
+    <script src="../../js/jquery.url.js"></script>
+    <script src="../../js/jquery.biggerlink.js"></script>
+    <script src="../../js/storage.js"></script>
+    <script src="../../js/apply_biggerlink.js"></script>
+    <script src="../../js/search.js"></script>
+    <script src="../js/tocdata.js"></script>
+    <script src="../js/searchdata.js"></script>
+    <script src="../js/commoninfo.js"></script>
+    <script src="../../js/script_common.js"></script>
+    <script src="../../js/script_content.js"></script>
+    <noscript>
+        <link rel="stylesheet" href="../../css/noscript.css"/>
+    </noscript>
+    <title>[IP 位址設定工具] 視窗</title>
+  </head>
+  <body>
+    <div id="top">
+      <!-- header ==================================================================== -->
+      <header id="header" class="clearfix">
+        <h1>
+            
+        </h1>
+        <ul id="headerNaviSp">
+          <li id="backBtnSp"><img src="../../images_sys/b_back@2x.png" alt="BACK" width="37" height="38"/></li>
+          <li id="menuBtnSp"><img src="../../images_sys/b_menu@2x.png" alt="MENU" width="37" height="38"/></li>
+          <li id="searchBtnSp"><img src="../../images_sys/b_search@2x.png" alt="SEARCH" width="37" height="38"/></li>
+          <li id="modelSelectLst"><div id="selectModelLstSp"></div></li>
+        </ul>
+        <div class="clear spOnly"></div>
+        <ul id="pr" class="clearfix">
+          <li>
+            <input id="searchText" type="text" value="" class="searchBox" maxlength="200"/>
+            <input id="searchExecBtn" name="search" type="submit" value="搜尋" class="searchBtn"/>
+          </li>
+          <li id="suggestArea">
+            <div id="suggest"></div>
+          </li>
+        </ul>
+        <ul class="quickLink clearfix"><li xmlns="http://www.w3.org/1999/xhtml" class="li"><a class="xref" href="support.html">支援的掃描器機型</a></li></ul>
+        <nav id="menuSp">
+          <ul id="languageNavi">
+            <li><a href="#">Language</a></li>
+          </ul>
+          <noscript>
+            <ul id="headerNavi" class="clearfix">
+                <li id="staticLinks"><a id="njsTableOfContents" style="display:inline" href="../../toc.html"><span>目錄</span></a></li>
+            </ul>
+          </noscript>
+        </nav>
+      </header>
+      <!-- /header ==================================================================== -->
+
+      <!-- main ==================================================================== -->
+      <div id="areaMain" class="clearfix">
+        <div id="sub">
+          <div id="gNaviSp"></div>
+          <nav id="menuPc"></nav>
+        </div>
+        <!-- / #sub -->
+
+        <div id="main">
+          <div id="contents">
+            <div class="tRight">
+            </div>
+            <article>
+
+	<h1 xmlns="http://www.w3.org/1999/xhtml" class="title topictitle1" id="ariaid-title1">[IP 位址設定工具] 視窗</h1>
+
+	
+	<div xmlns="http://www.w3.org/1999/xhtml" class="body conbody"><div class="abstract">
+		 <span class="shortdesc">變更掃描器的網路設定。</span>
+
+	</div>
+
+		<div class="section">
+			<dl class="dl">
+				
+					<dt class="dt dlterm">掃描器名稱</dt>
+
+					<dd class="dd"><p class="p">輸入 64 個字元以內的掃描器名稱。</p>
+
+						<p class="p">可使用以下字元：</p>
+
+						<ul class="ul">
+							<li class="li"><p class="p">英數字元</p>
+</li>
+
+							<li class="li"><p class="p">「-」(連字號)</p>
+</li>
+
+							<li class="li"><p class="p">「_」(底線)</p>
+</li>
+
+							<li class="li"><p class="p">空格</p>
+
+									<p class="p">請注意，在名稱開頭與結尾的空格會被刪除。</p>
+</li>
+
+						</ul>
+
+						<p class="p">出廠預設值為掃描器的機型名稱和序號 (機型名稱 - 序號)。</p>
+
+						<div class="note_box tipbox"><div class="note_title tiptitle"><span>提示</span></div><div class="note tip">
+							<ul class="ul">
+								<li class="li"><p class="p">掃描器的序號印在產品標籤上。</p>
+
+										<p class="p">關於詳細資料，請參閱掃描器的《操作指南》。</p>
+
+								</li>
+
+								<li class="li"><p class="p">如果您啟用掃描器設定中的 [動態 DNS]，請輸入掃描器名稱，長度不超過 63 個字元。</p>
+
+										<p class="p">關於動態 DNS 的詳細資料，請參閱您掃描器的《操作指南》。</p>
+
+										<p class="p">建議您在 DNS 伺服器上登錄掃描器名稱時，不要使用下列半形字元，因為這些字元將會轉換為「-」(連字號)。</p>
+
+											<ul class="ul">
+												<li class="li"><p class="p">「_」(底線)</p>
+</li>
+
+												<li class="li"><p class="p">空格</p>
+</li>
+
+											</ul>
+
+								</li>
+
+								</ul>
+
+						</div></div>
+
+					</dd>
+
+				
+				
+					<dt class="dt dlterm">網路</dt>
+
+					<dd class="dd"><p class="p">顯示掃描器的網路設定。</p>
+
+					<dl class="dl">
+					
+					<dt class="dt dlterm">MAC 位址</dt>
+
+					<dd class="dd"><p class="p">顯示掃描器的 MAC 位址。</p>
+</dd>
+
+
+				
+					<dt class="dt dlterm">IPv4</dt>
+
+						<dd class="dd">
+							<dl class="dl">
+								
+									<dt class="dt dlterm">IPv4 設定</dt>
+
+									<dd class="dd"><p class="p">選擇設定掃描器 IPv4 位址的方式。</p>
+
+											<ul class="ul">
+												<li class="li"><p class="p">自動</p>
+
+														<p class="p">DHCP 伺服器將自動指派 IP 位址給掃描器。</p>
+
+														<p class="p">這是出廠預設設定。</p>
+</li>
+
+												<li class="li"><p class="p">手動</p>
+
+													<p class="p">手動指派 IP 位址。</p>
+</li>
+
+											</ul>
+
+								</dd>
+
+								
+								
+									<dt class="dt dlterm">IP 位址</dt>
+
+									<dd class="dd"><p class="p">顯示掃描器的 IP 位址。</p>
+
+											<p class="p">若在 [IPv4 設定] 中選擇 [手動]，請輸入掃描器的 IP 位址。</p>
+
+									</dd>
+
+								
+								
+									<dt class="dt dlterm">子網路遮罩</dt>
+
+									<dd class="dd"><p class="p">顯示 IP 位址的子網路遮罩。</p>
+
+											<p class="p">若在 [IPv4 設定] 中選擇 [手動]，請輸入 IP 位址的子網路遮罩。</p>
+
+									</dd>
+
+								
+								
+									<dt class="dt dlterm">預設閘道</dt>
+
+									<dd class="dd"><p class="p">顯示 IP 位址的預設閘道。</p>
+
+											<p class="p">若在 [IPv4 設定] 中選擇 [手動]，請輸入 IP 位址的預設閘道。</p>
+
+									</dd>
+
+								
+							</dl>
+
+						</dd>
+
+					
+					
+						<dt class="dt dlterm">IPv6</dt>
+
+						<dd class="dd">
+								<dl class="dl">
+									
+										<dt class="dt dlterm">IP 位址</dt>
+
+										<dd class="dd"><p class="p">顯示掃描器的 IP 位址和子網路首碼長度。</p>
+
+										</dd>
+
+									
+									
+										<dt class="dt dlterm">預設閘道</dt>
+
+										<dd class="dd"><p class="p">顯示 IP 位址的預設閘道。</p>
+
+										</dd>
+
+									
+									
+										<dt class="dt dlterm">[IPv6 設定] 按鈕</dt>
+
+										<dd class="dd"><p class="p">顯示 <a class="xref" href="dbox_ipv6_set.html">[IPv6 設定] 視窗</a>。</p>
+
+										<p class="p">設定 IPv6 位址。</p>
+</dd>
+
+									
+							</dl>
+
+						</dd>
+
+					
+
+					
+					<dt class="dt dlterm">安全性</dt>
+
+					<dd class="dd">
+					<dl class="dl">
+						
+							<dt class="dt dlterm">網路加密</dt>
+
+							<dd class="dd">
+							<p class="p">指定是否加密網路通訊。</p>
+
+							<dl class="dl">
+								
+									<dt class="dt dlterm">不加密 (HTTP)</dt>
+
+									<dd class="dd"><p class="p">此為以掃描速度為優先的傳輸方式。</p>
+
+											<p class="p">這是出廠預設設定。</p>
+
+									</dd>
+
+								
+							</dl>
+
+							<dl class="dl">
+								
+									<dt class="dt dlterm">加密 (HTTPS)</dt>
+
+									<dd class="dd"><p class="p">此為以安全性為優先的傳輸方式。</p>
+
+											<p class="p">請注意，掃描速度可能會變慢。</p>
+
+									</dd>
+
+								
+							</dl>
+
+						</dd>
+
+						
+					</dl>
+
+					</dd>
+
+					
+						
+							<dt class="dt dlterm">您要由應用程式操作掃描器嗎？</dt>
+
+							<dd class="dd"><p class="p">會顯示說明。</p>
+
+							</dd>
+
+						
+						
+							<dt class="dt dlterm">[選擇掃描器] 按鈕</dt>
+
+							<dd class="dd"><p class="p">啟動掃描器選擇工具。</p>
+
+								<div class="note_box tipbox"><div class="note_title tiptitle"><span>提示</span></div><div class="note tip">
+										<p class="p">若要由電腦上使用連線至網路的掃描器，必須使用掃描器選擇工具來選擇掃描器。</p>
+
+								</div></div>
+
+							</dd>
+
+						
+						
+							<dt class="dt dlterm">[確定] 按鈕</dt>
+
+							<dd class="dd"><p class="p">結束 IP 位址設定工具。</p>
+
+									<p class="p">變更已儲存。</p>
+
+							</dd>
+
+						
+						
+							<dt class="dt dlterm">[取消] 按鈕</dt>
+
+							<dd class="dd"><p class="p">結束 IP 位址設定工具。</p>
+
+									<p class="p">變更未儲存。</p>
+
+							</dd>
+
+						
+						
+							<dt class="dt dlterm">[套用] 按鈕</dt>
+
+							<dd class="dd"><p class="p">變更已儲存。</p>
+
+							</dd>
+
+						
+					</dl>
+
+				</dd>
+
+			
+		</dl>
+
+		</div>
+
+	</div>
+
+<div xmlns="http://www.w3.org/1999/xhtml" class="related-links">
+<ul class="ullinks">
+<li class="link ulchildlink"><a href="../../nw_setuptool_f/topic/dbox_ipv6_set.html">[IPv6 設定] 視窗</a><br/>
+</li>
+</ul>
+</div></article>
+          </div>
+        </div>
+        <!-- / #main -->
+      </div>
+      <!-- /main ==================================================================== -->
+
+      <!-- footer ==================================================================== -->
+      <footer id="footer">
+        <ul id="footerNavi" style="display:none"></ul>
+        <ul id="pagetop">
+          <li><a href="#top"><img src="../../images_sys/b_pagetop@2x.png" alt="TOP" width="44" height="44"/></a></li>
+        </ul>
+        <div class="tRight">
+        </div>
+        <p id="copyright"><small>&copy; PFU Limited 2021-2025</small></p>
+      </footer>
+      <!-- /footer ==================================================================== -->
+    </div>
+    <!-- /page -->
+  </body>
+</html>

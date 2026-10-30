@@ -1,0 +1,196 @@
+<!DOCTYPE html><html lang="pt-br">
+  <head>
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+  	<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+    <meta name="docName" content=""/>
+    <meta name="rootrelpath" content="../../"/>
+    <link rel="stylesheet" href="../../css/ssseries.css"/>
+    <link rel="stylesheet" href="../../css/commonltr.css"/>
+    <link rel="stylesheet" href="../../css/common.css"/>
+    <link rel="stylesheet" href="../../css/common4pc.css"/>
+    <link rel="stylesheet" href="../../css/ditahtml.css"/>
+    <link rel="stylesheet" href="../../css/style.css"/>
+    <link rel="stylesheet" href="../../css/custom.css"/>
+    <script src="../../js/jquery-3.7.1.min.js"></script>
+    <script src="../../js/jquery.cookie-1.4.1.min.js"></script>
+    <script src="../../js/jquery.highlight-4.js"></script>
+    <script src="../../js/jquery.url.js"></script>
+    <script src="../../js/jquery.biggerlink.js"></script>
+    <script src="../../js/storage.js"></script>
+    <script src="../../js/apply_biggerlink.js"></script>
+    <script src="../../js/search.js"></script>
+    <script src="../js/tocdata.js"></script>
+    <script src="../js/searchdata.js"></script>
+    <script src="../js/commoninfo.js"></script>
+    <script src="../../js/script_common.js"></script>
+    <script src="../../js/script_content.js"></script>
+    <noscript>
+        <link rel="stylesheet" href="../../css/noscript.css"/>
+    </noscript>
+    <title>Configurando as definições para botões em um scanner</title>
+  </head>
+  <body>
+    <div id="top">
+      <!-- header ==================================================================== -->
+      <header id="header" class="clearfix">
+        <h1>
+            
+        </h1>
+        <ul id="headerNaviSp">
+          <li id="backBtnSp"><img src="../../images_sys/b_back@2x.png" alt="BACK" width="37" height="38"/></li>
+          <li id="menuBtnSp"><img src="../../images_sys/b_menu@2x.png" alt="MENU" width="37" height="38"/></li>
+          <li id="searchBtnSp"><img src="../../images_sys/b_search@2x.png" alt="SEARCH" width="37" height="38"/></li>
+          <li id="modelSelectLst"><div id="selectModelLstSp"></div></li>
+        </ul>
+        <div class="clear spOnly"></div>
+        <ul id="pr" class="clearfix">
+          <li>
+            <input id="searchText" type="text" value="" class="searchBox" maxlength="200"/>
+            <input id="searchExecBtn" name="search" type="submit" value="Pesquisar" class="searchBtn"/>
+          </li>
+          <li id="suggestArea">
+            <div id="suggest"></div>
+          </li>
+        </ul>
+        <ul class="quickLink clearfix"><li xmlns="http://www.w3.org/1999/xhtml" class="li"><a class="xref" href="support.html">Modelos de scanners suportados</a></li></ul>
+        <nav id="menuSp">
+          <ul id="languageNavi">
+            <li><a href="#">Language</a></li>
+          </ul>
+          <noscript>
+            <ul id="headerNavi" class="clearfix">
+                <li id="staticLinks"><a id="njsTableOfContents" style="display:inline" href="../../toc.html"><span>Sumário</span></a></li>
+            </ul>
+          </noscript>
+        </nav>
+      </header>
+      <!-- /header ==================================================================== -->
+
+      <!-- main ==================================================================== -->
+      <div id="areaMain" class="clearfix">
+        <div id="sub">
+          <div id="gNaviSp"></div>
+          <nav id="menuPc"></nav>
+        </div>
+        <!-- / #sub -->
+
+        <div id="main">
+          <div id="contents">
+            <div class="tRight">
+            </div>
+            <article>
+
+	<h1 xmlns="http://www.w3.org/1999/xhtml" class="title topictitle1" id="ariaid-title1">Configurando as definições para botões em um scanner</h1>
+
+	
+	<div xmlns="http://www.w3.org/1999/xhtml" class="body taskbody"><div class="abstract">
+		<p class="shortdesc">Esta seção explica como usar o Button Event Manager e especificar um aplicativo de digitalização de imagens para ser iniciado quando um botão em um scanner é pressionado.</p>
+
+			<div class="note_box importantbox"><div class="note_title importanttitle"><span>ATENÇÃO</span></div><div class="note important">
+				<p class="p">Quando o mesmo scanner for selecionado por mais de um computador, usando a Ferramenta de seleção do scanner, selecione [Ver evento do botão] no menu do Button Event Manager somente no computador que deseja usar com o scanner.</p>
+
+			</div></div>
+
+			<div class="note_box tipbox"><div class="note_title tiptitle"><span>DICA</span></div><div class="note tip">
+						<p class="p">Se usar o Button Event Manager para especificar um aplicativo de digitalização de imagens para o botão de digitalização em um scanner, tome nota do seguinte.</p>
+
+						<ul class="ul">
+							<li class="li"><p class="p">Quando o PaperStream ClickScan está em execução</p>
+
+									<p class="p">Independentemente das configurações definidas para o botão de digitalização com o Button Event Manager, uma digitalização é realizada com o PaperStream ClickScan quando o botão de digitalização é pressionado em um scanner.</p>
+
+									<p class="p">Para inicializar outro aplicativo de digitalização de imagem (pressionando o botão de digitalização em um scanner), feche o PaperStream ClickScan. Para maiores detalhes, consulte a Ajuda do PaperStream ClickScan.</p>
+
+							</li>
+
+							<li class="li"><p class="p">Quando o PaperStream ClickScan não está em execução e o PaperStream Capture está instalado</p>
+
+									<p class="p">O PaperStream Capture é definido automaticamente para o botão de digitalização em um scanner.</p>
+
+												<p class="p">Se você não definir o PaperStream Capture para o botão de digitalização em um scanner, selecione [Nenhum] ou [Execute o programa seguinte] como [Operação] no <a class="xref" href="dbox_buttonevent.html">Janela [Configurações do botão]</a>.</p>
+
+							</li>
+
+						</ul>
+
+			</div></div>
+
+	</div>
+
+		<ol class="ol steps"><li class="li step stepexpand"><span class="ph cmd">Conecte um scanner em uma rede.</span>
+				<div class="itemgroup info">
+					<p class="p">Para maiores detalhes, consulte o Guia do Operador do scanner.</p>
+
+				</div>
+			</li>
+<li class="li step stepexpand"><span class="ph cmd">Ative o scanner a ser selecionado em um aplicativo de digitalização de imagem.</span>
+				<div class="itemgroup info">
+					<p class="p">Inicie a Ferramenta de seleção do scanner e selecione um scanner a ser usado a partir dos scanners conectados em uma rede.</p>
+
+					<p class="p">Para maiores detalhes, consulte a seção <a class="xref" href="opr_cnf_scanner.html">Selecionando um scanner que deseja usar</a>.</p>
+
+				</div>
+			</li>
+<li class="li step stepexpand"><span class="ph cmd">Configure as definições de digitalização no aplicativo de digitalização de imagem.</span>
+				<div class="itemgroup info">
+					<p class="p">Para mais detalhes, consulte o manual do aplicativo de digitalização de imagens.</p>
+
+				</div>
+			</li>
+<li class="li step stepexpand"><span class="ph cmd">Inicie o Button Event Manager.</span>
+				<div class="itemgroup info">
+					<p class="p">Para maiores detalhes, consulte a seção <a class="xref" href="startup_buttoneventmanager.html">Iniciando o Button Event Manager</a>.</p>
+
+					<p class="p">Quando o Button Event Manager for iniciado, <img class="image" src="../common/../images/icon_ButtonEventManager.png" height="32" width="32" alt="Ícone do Button Event Manager"/> aparece na área de notificação localizada no lado direito da barra de tarefas.</p>
+
+				</div>
+			</li>
+<li class="li step stepexpand"><span class="ph cmd">Clique com o botão direito do mouse em <img class="image" src="../common/../images/icon_ButtonEventManager.png" height="32" width="32" alt="Ícone do Button Event Manager"/>.</span>
+				<div class="itemgroup info">
+					<p class="p">A <a class="xref" href="dbox_buttoneventmanager.html">Menu do Button Event Manager</a> aparecerá.</p>
+
+				</div>
+			</li>
+<li class="li step stepexpand"><span class="ph cmd">Selecione [Ver evento do botão] no menu.</span>
+			</li>
+<li class="li step stepexpand"><span class="ph cmd">Clique em [Ajustar as configurações do botão] no menu.</span>
+				<div class="itemgroup info">
+					<p class="p">A <a class="xref" href="dbox_buttonevent.html">Janela [Configurações do botão]</a> aparecerá.</p>
+
+				</div>
+			</li>
+<li class="li step stepexpand"><span class="ph cmd">Especifique um aplicativo de digitalização de imagens a ser iniciado quando o botão em um scanner é pressionado.</span>
+				<div class="itemgroup info">
+					<p class="p">Para obter detalhes sobre as configurações, consulte <a class="xref" href="dbox_buttonevent.html">Janela [Configurações do botão]</a>.</p>
+
+				</div>
+			</li>
+<li class="li step stepexpand"><span class="ph cmd">Clique no botão [OK].</span>
+			</li>
+</ol>
+
+	</div>
+
+</article>
+          </div>
+        </div>
+        <!-- / #main -->
+      </div>
+      <!-- /main ==================================================================== -->
+
+      <!-- footer ==================================================================== -->
+      <footer id="footer">
+        <ul id="footerNavi" style="display:none"></ul>
+        <ul id="pagetop">
+          <li><a href="#top"><img src="../../images_sys/b_pagetop@2x.png" alt="TOP" width="44" height="44"/></a></li>
+        </ul>
+        <div class="tRight">
+        </div>
+        <p id="copyright"><small>&copy; PFU Limited 2021-2025</small></p>
+      </footer>
+      <!-- /footer ==================================================================== -->
+    </div>
+    <!-- /page -->
+  </body>
+</html>

@@ -1,0 +1,251 @@
+<!DOCTYPE html><html lang="ja-jp">
+  <head>
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+  	<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+    <meta name="docName" content=""/>
+    <meta name="rootrelpath" content="../../"/>
+    <link rel="stylesheet" href="../../css/ssseries.css"/>
+    <link rel="stylesheet" href="../../css/commonltr.css"/>
+    <link rel="stylesheet" href="../../css/common.css"/>
+    <link rel="stylesheet" href="../../css/common4pc.css"/>
+    <link rel="stylesheet" href="../../css/ditahtml.css"/>
+    <link rel="stylesheet" href="../../css/style.css"/>
+    <link rel="stylesheet" href="../../css/custom.css"/>
+    <script src="../../js/jquery-3.7.1.min.js"></script>
+    <script src="../../js/jquery.cookie-1.4.1.min.js"></script>
+    <script src="../../js/jquery.highlight-4.js"></script>
+    <script src="../../js/jquery.url.js"></script>
+    <script src="../../js/jquery.biggerlink.js"></script>
+    <script src="../../js/storage.js"></script>
+    <script src="../../js/apply_biggerlink.js"></script>
+    <script src="../../js/search.js"></script>
+    <script src="../js/tocdata.js"></script>
+    <script src="../js/searchdata.js"></script>
+    <script src="../js/commoninfo.js"></script>
+    <script src="../../js/script_common.js"></script>
+    <script src="../../js/script_content.js"></script>
+    <noscript>
+        <link rel="stylesheet" href="../../css/noscript.css"/>
+    </noscript>
+    <title>「ボタン設定」画面</title>
+  </head>
+  <body>
+    <div id="top">
+      <!-- header ==================================================================== -->
+      <header id="header" class="clearfix">
+        <h1>
+            
+        </h1>
+        <ul id="headerNaviSp">
+          <li id="backBtnSp"><img src="../../images_sys/b_back@2x.png" alt="BACK" width="37" height="38"/></li>
+          <li id="menuBtnSp"><img src="../../images_sys/b_menu@2x.png" alt="MENU" width="37" height="38"/></li>
+          <li id="searchBtnSp"><img src="../../images_sys/b_search@2x.png" alt="SEARCH" width="37" height="38"/></li>
+          <li id="modelSelectLst"><div id="selectModelLstSp"></div></li>
+        </ul>
+        <div class="clear spOnly"></div>
+        <ul id="pr" class="clearfix">
+          <li>
+            <input id="searchText" type="text" value="" class="searchBox" maxlength="200"/>
+            <input id="searchExecBtn" name="search" type="submit" value="検索" class="searchBtn"/>
+          </li>
+          <li id="suggestArea">
+            <div id="suggest"></div>
+          </li>
+        </ul>
+        <ul class="quickLink clearfix"><li xmlns="http://www.w3.org/1999/xhtml" class="li"><a class="xref" href="support.html">サポート機種</a></li></ul>
+        <nav id="menuSp">
+          <ul id="languageNavi">
+            <li><a href="#">Language</a></li>
+          </ul>
+          <noscript>
+            <ul id="headerNavi" class="clearfix">
+                <li id="staticLinks"><a id="njsTableOfContents" style="display:inline" href="../../toc.html"><span>目次</span></a></li>
+            </ul>
+          </noscript>
+        </nav>
+      </header>
+      <!-- /header ==================================================================== -->
+
+      <!-- main ==================================================================== -->
+      <div id="areaMain" class="clearfix">
+        <div id="sub">
+          <div id="gNaviSp"></div>
+          <nav id="menuPc"></nav>
+        </div>
+        <!-- / #sub -->
+
+        <div id="main">
+          <div id="contents">
+            <div class="tRight">
+            </div>
+            <article>
+
+	<h1 xmlns="http://www.w3.org/1999/xhtml" class="title topictitle1" id="ariaid-title1">「ボタン設定」画面</h1>
+
+	
+	<div xmlns="http://www.w3.org/1999/xhtml" class="body conbody"><div class="abstract">
+		 <span class="shortdesc">スキャナーのボタンを押したときに起動する画像読み取り用アプリケーションを設定できます。</span>
+
+	</div>
+
+		<div class="section">
+				<dl class="dl">
+					
+						<dt class="dt dlterm">イベントを選択してください</dt>
+
+						<dd class="dd"><p class="p">ボタン一覧から、画像読み取り用アプリケーションを設定するボタンを選択します。</p>
+
+									<div class="note_box tipbox"><div class="note_title tiptitle"><span>ヒント</span></div><div class="note tip">
+							<ul class="ul">
+								<li class="li"><p class="p">スキャナーの機種によって、ボタン一覧に表示されるボタン名が異なります。</p>
+
+										<p class="p">詳細は、スキャナーのオペレーターガイドを参照してください。</p>
+</li>
+
+								<li class="li">
+									<p class="p">Button Event Managerを使用して、スキャナーのスキャンボタンに画像読み取り用アプリケーションを設定する場合、以下の点に注意してください。</p>
+
+									<ul class="ul">
+										<li class="li"><p class="p">PaperStream ClickScanが起動している場合</p>
+
+												<p class="p">Button Event Managerでの設定に関係なく、スキャナーのスキャンボタンを押すとPaperStream ClickScanで読み取りが実行されます。</p>
+
+												<p class="p">スキャナーのスキャンボタンでほかの画像読み取り用アプリケーションを起動するには、PaperStream ClickScanを終了してください。詳細は、PaperStream ClickScanのヘルプを参照してください。</p>
+
+										</li>
+
+										<li class="li"><p class="p">PaperStream ClickScanが起動していない、かつPaperStream Captureがインストールされている場合</p>
+
+												<p class="p">スキャナーのスキャンボタンに自動でPaperStream Captureが設定されます。</p>
+
+												<p class="p">スキャナーのスキャンボタンにPaperStream Captureを設定しない場合は、「操作」で「何もしない」または「次のプログラムを実行する」を選択してください。</p>
+
+										<p class="p">スキャナーのボタンを設定する方法は、<a class="xref" href="opr_buttonevent.html">スキャナーのボタンを設定する</a>を参照してください。</p>
+</li>
+
+									</ul>
+
+								</li>
+
+							</ul>
+
+									</div></div>
+
+						</dd>
+
+					
+				</dl>
+
+			<dl class="dl">
+				
+					<dt class="dt dlterm">操作</dt>
+
+					<dd class="dd">
+						<dl class="dl">
+							
+								<dt class="dt dlterm">[PaperStream Capture]を起動する</dt>
+
+								<dd class="dd"><p class="p">PaperStream Captureを起動する場合に選択します。</p>
+
+										<p class="p">使用しているスキャナーによっては、ドキュメントプロファイル名がタッチパネルまたは操作パネルに表示されます。</p>
+
+										<p class="p">詳細は、PaperStream Captureのヘルプを参照してください。</p>
+
+								</dd>
+
+							
+							
+								<dt class="dt dlterm">次のプログラムを実行する</dt>
+
+								<dd class="dd">
+									<p class="p">任意のプログラムを実行する場合に選択します。</p>
+
+									<p class="p">実行するプログラムのパスを指定します。</p>
+
+									<dl class="dl">
+										
+											<dt class="dt dlterm">［参照］ボタン</dt>
+
+											<dd class="dd"><p class="p">「アプリケーションを選択してください」画面を表示します。</p>
+
+												<p class="p">実行するプログラムを指定します。</p>
+
+											</dd>
+
+										
+										
+											<dt class="dt dlterm">引数</dt>
+
+											<dd class="dd"><p class="p">引数は、255文字まで指定できます。</p>
+
+												<p class="p">引数の詳細は、実行するプログラムのマニュアルを参照してください。</p>
+
+											</dd>
+
+										
+									</dl>
+
+								</dd>
+
+							
+							
+								<dt class="dt dlterm">何もしない</dt>
+
+								<dd class="dd"><p class="p">プログラムを実行しない場合に選択します。</p>
+</dd>
+
+							
+						</dl>
+
+					</dd>
+
+				
+				
+					<dt class="dt dlterm">［OK］ボタン</dt>
+
+					<dd class="dd"><p class="p">画面を閉じます。</p>
+
+						<p class="p">変更した内容は保存されます。</p>
+
+					</dd>
+
+				
+				
+					<dt class="dt dlterm">［キャンセル］ボタン</dt>
+
+					<dd class="dd"><p class="p">画面を閉じます。</p>
+
+						<p class="p">変更した内容は保存されません。</p>
+
+					</dd>
+
+				
+			</dl>
+
+		</div>
+
+	</div>
+
+</article>
+          </div>
+        </div>
+        <!-- / #main -->
+      </div>
+      <!-- /main ==================================================================== -->
+
+      <!-- footer ==================================================================== -->
+      <footer id="footer">
+        <ul id="footerNavi" style="display:none"></ul>
+        <ul id="pagetop">
+          <li><a href="#top"><img src="../../images_sys/b_pagetop@2x.png" alt="TOP" width="44" height="44"/></a></li>
+        </ul>
+        <div class="tRight">
+        </div>
+        <p id="copyright"><small>&copy; PFU Limited 2021-2025</small></p>
+      </footer>
+      <!-- /footer ==================================================================== -->
+    </div>
+    <!-- /page -->
+  </body>
+</html>

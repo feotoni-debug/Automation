@@ -1,0 +1,251 @@
+<!DOCTYPE html><html lang="zh-cn">
+  <head>
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+  	<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+    <meta name="docName" content=""/>
+    <meta name="rootrelpath" content="../../"/>
+    <link rel="stylesheet" href="../../css/ssseries.css"/>
+    <link rel="stylesheet" href="../../css/commonltr.css"/>
+    <link rel="stylesheet" href="../../css/common.css"/>
+    <link rel="stylesheet" href="../../css/common4pc.css"/>
+    <link rel="stylesheet" href="../../css/ditahtml.css"/>
+    <link rel="stylesheet" href="../../css/style.css"/>
+    <link rel="stylesheet" href="../../css/custom.css"/>
+    <script src="../../js/jquery-3.7.1.min.js"></script>
+    <script src="../../js/jquery.cookie-1.4.1.min.js"></script>
+    <script src="../../js/jquery.highlight-4.js"></script>
+    <script src="../../js/jquery.url.js"></script>
+    <script src="../../js/jquery.biggerlink.js"></script>
+    <script src="../../js/storage.js"></script>
+    <script src="../../js/apply_biggerlink.js"></script>
+    <script src="../../js/search.js"></script>
+    <script src="../js/tocdata.js"></script>
+    <script src="../js/searchdata.js"></script>
+    <script src="../js/commoninfo.js"></script>
+    <script src="../../js/script_common.js"></script>
+    <script src="../../js/script_content.js"></script>
+    <noscript>
+        <link rel="stylesheet" href="../../css/noscript.css"/>
+    </noscript>
+    <title>[按钮设置]窗口</title>
+  </head>
+  <body>
+    <div id="top">
+      <!-- header ==================================================================== -->
+      <header id="header" class="clearfix">
+        <h1>
+            
+        </h1>
+        <ul id="headerNaviSp">
+          <li id="backBtnSp"><img src="../../images_sys/b_back@2x.png" alt="BACK" width="37" height="38"/></li>
+          <li id="menuBtnSp"><img src="../../images_sys/b_menu@2x.png" alt="MENU" width="37" height="38"/></li>
+          <li id="searchBtnSp"><img src="../../images_sys/b_search@2x.png" alt="SEARCH" width="37" height="38"/></li>
+          <li id="modelSelectLst"><div id="selectModelLstSp"></div></li>
+        </ul>
+        <div class="clear spOnly"></div>
+        <ul id="pr" class="clearfix">
+          <li>
+            <input id="searchText" type="text" value="" class="searchBox" maxlength="200"/>
+            <input id="searchExecBtn" name="search" type="submit" value="搜索" class="searchBtn"/>
+          </li>
+          <li id="suggestArea">
+            <div id="suggest"></div>
+          </li>
+        </ul>
+        <ul class="quickLink clearfix"><li xmlns="http://www.w3.org/1999/xhtml" class="li"><a class="xref" href="support.html">支持的扫描仪机型</a></li></ul>
+        <nav id="menuSp">
+          <ul id="languageNavi">
+            <li><a href="#">Language</a></li>
+          </ul>
+          <noscript>
+            <ul id="headerNavi" class="clearfix">
+                <li id="staticLinks"><a id="njsTableOfContents" style="display:inline" href="../../toc.html"><span>目录</span></a></li>
+            </ul>
+          </noscript>
+        </nav>
+      </header>
+      <!-- /header ==================================================================== -->
+
+      <!-- main ==================================================================== -->
+      <div id="areaMain" class="clearfix">
+        <div id="sub">
+          <div id="gNaviSp"></div>
+          <nav id="menuPc"></nav>
+        </div>
+        <!-- / #sub -->
+
+        <div id="main">
+          <div id="contents">
+            <div class="tRight">
+            </div>
+            <article>
+
+	<h1 xmlns="http://www.w3.org/1999/xhtml" class="title topictitle1" id="ariaid-title1">[按钮设置]窗口</h1>
+
+	
+	<div xmlns="http://www.w3.org/1999/xhtml" class="body conbody"><div class="abstract">
+		 <span class="shortdesc">指定想要在按下扫描仪上的按钮后启动的图像扫描应用程序。</span>
+
+	</div>
+
+		<div class="section">
+				<dl class="dl">
+					
+						<dt class="dt dlterm">选择事件</dt>
+
+						<dd class="dd"><p class="p">从按钮列表中，选择一个按钮以指定按下扫描仪上的按钮时要启动的图像扫描应用程序。</p>
+
+									<div class="note_box tipbox"><div class="note_title tiptitle"><span>提示</span></div><div class="note tip">
+							<ul class="ul">
+								<li class="li"><p class="p">按钮列表中所示按钮的名称因扫描仪机型而异。</p>
+
+										<p class="p">详情请参阅扫描仪的操作指南。</p>
+</li>
+
+								<li class="li">
+									<p class="p">如果使用Button Event Manager为扫描仪上的扫描按钮指定图像扫描应用程序，请注意以下要点。</p>
+
+									<ul class="ul">
+										<li class="li"><p class="p">当PaperStream ClickScan正在运行时</p>
+
+												<p class="p">无论使用Button Event Manager为扫描按钮配置的设置为何，按下扫描仪上的扫描按钮时均会通过PaperStream ClickScan执行扫描。</p>
+
+												<p class="p">若要（通过按下扫描仪上的扫描按钮）启动其他图像扫描应用程序，请退出PaperStream ClickScan。详情请参阅PaperStream ClickScan帮助。</p>
+
+										</li>
+
+										<li class="li"><p class="p">当PaperStream ClickScan未在运行且安装了PaperStream Capture时</p>
+
+												<p class="p">自动为扫描仪上的扫描按钮设置PaperStream Capture。</p>
+
+												<p class="p">如果您不为扫描仪上的扫描按钮设置PaperStream Capture，请选择[操作]中的[无效]或[运行以下程序]。</p>
+
+										<p class="p">有关如何在扫描仪上设置按钮的详情，请参阅<a class="xref" href="opr_buttonevent.html">为扫描仪上的按钮配置设置</a>。</p>
+</li>
+
+									</ul>
+
+								</li>
+
+							</ul>
+
+									</div></div>
+
+						</dd>
+
+					
+				</dl>
+
+			<dl class="dl">
+				
+					<dt class="dt dlterm">操作</dt>
+
+					<dd class="dd">
+						<dl class="dl">
+							
+								<dt class="dt dlterm">启动[PaperStream Capture]</dt>
+
+								<dd class="dd"><p class="p">选择此项以启动PaperStream Capture。</p>
+
+										<p class="p">文档个人设置名称显示在触摸屏或操作面板上，具体视使用的扫描仪而定。</p>
+
+										<p class="p">详情请参阅PaperStream Capture帮助。</p>
+
+								</dd>
+
+							
+							
+								<dt class="dt dlterm">运行以下程序</dt>
+
+								<dd class="dd">
+									<p class="p">选择此项以运行所选程序。</p>
+
+									<p class="p">指定要运行的程序的路径。</p>
+
+									<dl class="dl">
+										
+											<dt class="dt dlterm">[浏览]按钮</dt>
+
+											<dd class="dd"><p class="p">显示[选择应用程序]窗口。</p>
+
+												<p class="p">指定要运行的程序。</p>
+
+											</dd>
+
+										
+										
+											<dt class="dt dlterm">参数</dt>
+
+											<dd class="dd"><p class="p">最多可为参数指定255个字符。</p>
+
+												<p class="p">有关参数的详情，请参阅要运行的程序的手册。</p>
+
+											</dd>
+
+										
+									</dl>
+
+								</dd>
+
+							
+							
+								<dt class="dt dlterm">无效</dt>
+
+								<dd class="dd"><p class="p">如不运行任何程序，请选择此项。</p>
+</dd>
+
+							
+						</dl>
+
+					</dd>
+
+				
+				
+					<dt class="dt dlterm">[确定]按钮</dt>
+
+					<dd class="dd"><p class="p">关闭窗口。</p>
+
+						<p class="p">保存已变更的内容。</p>
+
+					</dd>
+
+				
+				
+					<dt class="dt dlterm">[取消]按钮</dt>
+
+					<dd class="dd"><p class="p">关闭窗口。</p>
+
+						<p class="p">不保存已变更的内容。</p>
+
+					</dd>
+
+				
+			</dl>
+
+		</div>
+
+	</div>
+
+</article>
+          </div>
+        </div>
+        <!-- / #main -->
+      </div>
+      <!-- /main ==================================================================== -->
+
+      <!-- footer ==================================================================== -->
+      <footer id="footer">
+        <ul id="footerNavi" style="display:none"></ul>
+        <ul id="pagetop">
+          <li><a href="#top"><img src="../../images_sys/b_pagetop@2x.png" alt="TOP" width="44" height="44"/></a></li>
+        </ul>
+        <div class="tRight">
+        </div>
+        <p id="copyright"><small>&copy; PFU Limited 2021-2025</small></p>
+      </footer>
+      <!-- /footer ==================================================================== -->
+    </div>
+    <!-- /page -->
+  </body>
+</html>

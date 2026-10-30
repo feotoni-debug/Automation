@@ -1,0 +1,244 @@
+<!DOCTYPE html><html lang="zh-cn">
+  <head>
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+  	<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+    <meta name="docName" content=""/>
+    <meta name="rootrelpath" content="../../"/>
+    <link rel="stylesheet" href="../../css/ssseries.css"/>
+    <link rel="stylesheet" href="../../css/commonltr.css"/>
+    <link rel="stylesheet" href="../../css/common.css"/>
+    <link rel="stylesheet" href="../../css/common4pc.css"/>
+    <link rel="stylesheet" href="../../css/ditahtml.css"/>
+    <link rel="stylesheet" href="../../css/style.css"/>
+    <link rel="stylesheet" href="../../css/custom.css"/>
+    <script src="../../js/jquery-3.7.1.min.js"></script>
+    <script src="../../js/jquery.cookie-1.4.1.min.js"></script>
+    <script src="../../js/jquery.highlight-4.js"></script>
+    <script src="../../js/jquery.url.js"></script>
+    <script src="../../js/jquery.biggerlink.js"></script>
+    <script src="../../js/storage.js"></script>
+    <script src="../../js/apply_biggerlink.js"></script>
+    <script src="../../js/search.js"></script>
+    <script src="../js/tocdata.js"></script>
+    <script src="../js/searchdata.js"></script>
+    <script src="../js/commoninfo.js"></script>
+    <script src="../../js/script_common.js"></script>
+    <script src="../../js/script_content.js"></script>
+    <noscript>
+        <link rel="stylesheet" href="../../css/noscript.css"/>
+    </noscript>
+    <title>无法从图像扫描应用程序执行扫描</title>
+  </head>
+  <body>
+    <div id="top">
+      <!-- header ==================================================================== -->
+      <header id="header" class="clearfix">
+        <h1>
+            
+        </h1>
+        <ul id="headerNaviSp">
+          <li id="backBtnSp"><img src="../../images_sys/b_back@2x.png" alt="BACK" width="37" height="38"/></li>
+          <li id="menuBtnSp"><img src="../../images_sys/b_menu@2x.png" alt="MENU" width="37" height="38"/></li>
+          <li id="searchBtnSp"><img src="../../images_sys/b_search@2x.png" alt="SEARCH" width="37" height="38"/></li>
+          <li id="modelSelectLst"><div id="selectModelLstSp"></div></li>
+        </ul>
+        <div class="clear spOnly"></div>
+        <ul id="pr" class="clearfix">
+          <li>
+            <input id="searchText" type="text" value="" class="searchBox" maxlength="200"/>
+            <input id="searchExecBtn" name="search" type="submit" value="搜索" class="searchBtn"/>
+          </li>
+          <li id="suggestArea">
+            <div id="suggest"></div>
+          </li>
+        </ul>
+        <ul class="quickLink clearfix"><li xmlns="http://www.w3.org/1999/xhtml" class="li"><a class="xref" href="support.html">支持的扫描仪机型</a></li></ul>
+        <nav id="menuSp">
+          <ul id="languageNavi">
+            <li><a href="#">Language</a></li>
+          </ul>
+          <noscript>
+            <ul id="headerNavi" class="clearfix">
+                <li id="staticLinks"><a id="njsTableOfContents" style="display:inline" href="../../toc.html"><span>目录</span></a></li>
+            </ul>
+          </noscript>
+        </nav>
+      </header>
+      <!-- /header ==================================================================== -->
+
+      <!-- main ==================================================================== -->
+      <div id="areaMain" class="clearfix">
+        <div id="sub">
+          <div id="gNaviSp"></div>
+          <nav id="menuPc"></nav>
+        </div>
+        <!-- / #sub -->
+
+        <div id="main">
+          <div id="contents">
+            <div class="tRight">
+            </div>
+            <article>
+
+	<h1 xmlns="http://www.w3.org/1999/xhtml" class="title topictitle1" id="ariaid-title1">无法从图像扫描应用程序执行扫描</h1>
+
+	<div xmlns="http://www.w3.org/1999/xhtml" class="body conbody">
+		<div class="section">
+			<dl class="dl">
+				
+					<dt class="dt dlterm">请检查以下项目：</dt>
+
+					<dd class="dd">
+						<ul class="ul">
+							<li class="li"><p class="p"><a class="xref" href="trouble_04.html#trouble_04__t01">是否已为WinHTTP代理设置代理服务器？</a></p>
+</li>
+
+						</ul>
+
+					</dd>
+
+				
+			</dl>
+
+		</div>
+
+		<div class="section" id="trouble_04__t01"><h2 class="title sectiontitle">是否已为WinHTTP代理设置代理服务器？</h2>
+		
+			<dl class="dl">
+				
+					<dt class="dt dlterm">解决方案</dt>
+
+					<dd class="dd"><p class="p">更改WinHTTP代理设置，以便您可以从电脑访问扫描仪。</p>
+
+							<p class="p">按照以下步骤更改WinHTTP代理设置。</p>
+
+						<ol class="ol">
+							<li class="li"><p class="p">在电脑上以具有管理员权限的用户身份启动指令提示窗口。</p>
+</li>
+
+							<li class="li"><p class="p">运行以下指令，查看要使用的代理服务器名称和端口号码。</p>
+
+									<p class="p">netsh winhttp show proxy</p>
+
+								<div class="note_box tipbox"><div class="note_title tiptitle"><span>提示</span></div><div class="note tip">
+										<p class="p">要使用的代理服务器名称和端口号码将如下显示。</p>
+
+										<p class="p">"代理服务器名称：端口号码"</p>
+
+								</div></div>
+
+							</li>
+
+							<li class="li"><p class="p">运行以下指令之一。</p>
+
+										<ul class="ul">
+											<li class="li"><p class="p">已设置代理服务器时</p>
+
+													<p class="p">配置设置，使电脑无需使用代理服务器即可访问扫描仪。</p>
+
+															
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" class="table" frame="border" border="1" rules="all"><colgroup><col/></colgroup><tbody class="tbody">
+																			<tr class="row">
+																				<td class="entry cellrowborder" style="vertical-align:top;">
+																							<p class="p">netsh winhttp set proxy proxy-server="XXXXXX:YYYY" bypass-list=ZZZ.ZZZ.ZZZ.ZZZ</p>
+
+																				</td>
+
+																			</tr>
+
+																		</tbody>
+</table>
+</div>
+
+															<p class="p">XXXXXX：代理服务器名称</p>
+
+															<p class="p">YYYY：要使用的端口号码</p>
+
+															<p class="p">ZZZ.ZZZ.ZZZ.ZZZ：扫描仪的IP地址（*1）（*2）</p>
+
+											</li>
+
+											<li class="li"><p class="p">未设置代理服务器时</p>
+
+													<p class="p">如果重设设置，电脑也许就能访问扫描仪。</p>
+
+													
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" class="table" frame="border" border="1" rules="all"><colgroup><col/></colgroup><tbody class="tbody">
+																	<tr class="row">
+																		<td class="entry cellrowborder" style="vertical-align:top;">
+																					<p class="p">netsh winhttp reset proxy</p>
+
+																		</td>
+
+																	</tr>
+
+																</tbody>
+</table>
+</div>
+
+											</li>
+
+										</ul>
+
+							</li>
+
+						</ol>
+
+					</dd>
+
+						<dd class="dd ddexpand">
+							<table class="dltable"><tbody>
+								<tr>
+									<td valign="top" class="dltable_dt">*1：</td>
+
+									<td valign="top"><p class="p">可以在扫描仪的触摸屏或操作面板上，或在IP地址设置工具中查看扫描仪的IP地址。</p>
+
+									</td>
+
+								</tr>
+								<tr>
+									<td valign="top" class="dltable_dt">*2：</td>
+
+									<td valign="top"><p class="p">此处以IPv4地址格式为例。</p>
+
+											<p class="p">IPv6地址使用以下格式。</p>
+
+											<p class="p">ZZZZ:ZZZZ:ZZZZ:ZZZZ:ZZZZ:ZZZZ:ZZZZ:ZZZZ</p>
+
+									</td>
+
+								</tr>
+							</tbody></table>
+
+						</dd>
+
+				
+			</dl>
+
+		</div>
+
+	</div>
+
+</article>
+          </div>
+        </div>
+        <!-- / #main -->
+      </div>
+      <!-- /main ==================================================================== -->
+
+      <!-- footer ==================================================================== -->
+      <footer id="footer">
+        <ul id="footerNavi" style="display:none"></ul>
+        <ul id="pagetop">
+          <li><a href="#top"><img src="../../images_sys/b_pagetop@2x.png" alt="TOP" width="44" height="44"/></a></li>
+        </ul>
+        <div class="tRight">
+        </div>
+        <p id="copyright"><small>&copy; PFU Limited 2021-2025</small></p>
+      </footer>
+      <!-- /footer ==================================================================== -->
+    </div>
+    <!-- /page -->
+  </body>
+</html>

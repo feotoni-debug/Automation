@@ -1,0 +1,244 @@
+<!DOCTYPE html><html lang="it-it">
+  <head>
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+  	<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+    <meta name="docName" content=""/>
+    <meta name="rootrelpath" content="../../"/>
+    <link rel="stylesheet" href="../../css/ssseries.css"/>
+    <link rel="stylesheet" href="../../css/commonltr.css"/>
+    <link rel="stylesheet" href="../../css/common.css"/>
+    <link rel="stylesheet" href="../../css/common4pc.css"/>
+    <link rel="stylesheet" href="../../css/ditahtml.css"/>
+    <link rel="stylesheet" href="../../css/style.css"/>
+    <link rel="stylesheet" href="../../css/custom.css"/>
+    <script src="../../js/jquery-3.7.1.min.js"></script>
+    <script src="../../js/jquery.cookie-1.4.1.min.js"></script>
+    <script src="../../js/jquery.highlight-4.js"></script>
+    <script src="../../js/jquery.url.js"></script>
+    <script src="../../js/jquery.biggerlink.js"></script>
+    <script src="../../js/storage.js"></script>
+    <script src="../../js/apply_biggerlink.js"></script>
+    <script src="../../js/search.js"></script>
+    <script src="../js/tocdata.js"></script>
+    <script src="../js/searchdata.js"></script>
+    <script src="../js/commoninfo.js"></script>
+    <script src="../../js/script_common.js"></script>
+    <script src="../../js/script_content.js"></script>
+    <noscript>
+        <link rel="stylesheet" href="../../css/noscript.css"/>
+    </noscript>
+    <title>Impossibile eseguire una scansione dall&#39;applicazione di scansione delle immagini</title>
+  </head>
+  <body>
+    <div id="top">
+      <!-- header ==================================================================== -->
+      <header id="header" class="clearfix">
+        <h1>
+            
+        </h1>
+        <ul id="headerNaviSp">
+          <li id="backBtnSp"><img src="../../images_sys/b_back@2x.png" alt="BACK" width="37" height="38"/></li>
+          <li id="menuBtnSp"><img src="../../images_sys/b_menu@2x.png" alt="MENU" width="37" height="38"/></li>
+          <li id="searchBtnSp"><img src="../../images_sys/b_search@2x.png" alt="SEARCH" width="37" height="38"/></li>
+          <li id="modelSelectLst"><div id="selectModelLstSp"></div></li>
+        </ul>
+        <div class="clear spOnly"></div>
+        <ul id="pr" class="clearfix">
+          <li>
+            <input id="searchText" type="text" value="" class="searchBox" maxlength="200"/>
+            <input id="searchExecBtn" name="search" type="submit" value="Cerca" class="searchBtn"/>
+          </li>
+          <li id="suggestArea">
+            <div id="suggest"></div>
+          </li>
+        </ul>
+        <ul class="quickLink clearfix"><li xmlns="http://www.w3.org/1999/xhtml" class="li"><a class="xref" href="support.html">Modelli di scanner supportati</a></li></ul>
+        <nav id="menuSp">
+          <ul id="languageNavi">
+            <li><a href="#">Language</a></li>
+          </ul>
+          <noscript>
+            <ul id="headerNavi" class="clearfix">
+                <li id="staticLinks"><a id="njsTableOfContents" style="display:inline" href="../../toc.html"><span>Sommario</span></a></li>
+            </ul>
+          </noscript>
+        </nav>
+      </header>
+      <!-- /header ==================================================================== -->
+
+      <!-- main ==================================================================== -->
+      <div id="areaMain" class="clearfix">
+        <div id="sub">
+          <div id="gNaviSp"></div>
+          <nav id="menuPc"></nav>
+        </div>
+        <!-- / #sub -->
+
+        <div id="main">
+          <div id="contents">
+            <div class="tRight">
+            </div>
+            <article>
+
+	<h1 xmlns="http://www.w3.org/1999/xhtml" class="title topictitle1" id="ariaid-title1">Impossibile eseguire una scansione dall&#39;applicazione di scansione delle immagini</h1>
+
+	<div xmlns="http://www.w3.org/1999/xhtml" class="body conbody">
+		<div class="section">
+			<dl class="dl">
+				
+					<dt class="dt dlterm">Controllare quanto segue:</dt>
+
+					<dd class="dd">
+						<ul class="ul">
+							<li class="li"><p class="p"><a class="xref" href="trouble_04.html#trouble_04__t01">È stato impostato un server proxy per l&#39;impostazione proxy WinHTTP?</a></p>
+</li>
+
+						</ul>
+
+					</dd>
+
+				
+			</dl>
+
+		</div>
+
+		<div class="section" id="trouble_04__t01"><h2 class="title sectiontitle">È stato impostato un server proxy per l&#39;impostazione proxy WinHTTP?</h2>
+		
+			<dl class="dl">
+				
+					<dt class="dt dlterm">Soluzione</dt>
+
+					<dd class="dd"><p class="p">Modificare le impostazioni proxy WinHTTP in modo da poter accedere allo scanner dal computer.</p>
+
+							<p class="p">Modificare le impostazioni proxy WinHTTP con la procedura seguente.</p>
+
+						<ol class="ol">
+							<li class="li"><p class="p">Avviare la finestra del prompt dei comandi come utente con privilegi di amministratore su un computer.</p>
+</li>
+
+							<li class="li"><p class="p">Eseguire il comando seguente per controllare il nome del server proxy e i numeri di porta da usare.</p>
+
+									<p class="p">netsh winhttp show proxy</p>
+
+								<div class="note_box tipbox"><div class="note_title tiptitle"><span>CONSIGLIO</span></div><div class="note tip">
+										<p class="p">Il nome del server proxy e i numeri di porta da usare saranno visualizzati come segue.</p>
+
+										<p class="p">"Nome del server proxy: Numeri di porta"</p>
+
+								</div></div>
+
+							</li>
+
+							<li class="li"><p class="p">Eseguire uno dei comandi seguenti.</p>
+
+										<ul class="ul">
+											<li class="li"><p class="p">Quando è già stato impostato un server proxy</p>
+
+													<p class="p">Configurare l&#39;impostazione il modo che il computer possa accedere allo scanner senza usare il server proxy.</p>
+
+															
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" class="table" frame="border" border="1" rules="all"><colgroup><col/></colgroup><tbody class="tbody">
+																			<tr class="row">
+																				<td class="entry cellrowborder" style="vertical-align:top;">
+																							<p class="p">netsh winhttp set proxy proxy-server="XXXXXX:YYYY" bypass-list=ZZZ.ZZZ.ZZZ.ZZZ</p>
+
+																				</td>
+
+																			</tr>
+
+																		</tbody>
+</table>
+</div>
+
+															<p class="p">XXXXXX: Nome del server proxy</p>
+
+															<p class="p">YYYY: Numeri di porta da usare</p>
+
+															<p class="p">ZZZ.ZZZ.ZZZ.ZZZ: Indirizzo IP dello scanner (*1)(*2)</p>
+
+											</li>
+
+											<li class="li"><p class="p">Quando il server proxy non è stato impostato</p>
+
+													<p class="p">Ripristinando le impostazioni, il computer potrebbe essere in grado di accedere allo scanner.</p>
+
+													
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" class="table" frame="border" border="1" rules="all"><colgroup><col/></colgroup><tbody class="tbody">
+																	<tr class="row">
+																		<td class="entry cellrowborder" style="vertical-align:top;">
+																					<p class="p">netsh winhttp reset proxy</p>
+
+																		</td>
+
+																	</tr>
+
+																</tbody>
+</table>
+</div>
+
+											</li>
+
+										</ul>
+
+							</li>
+
+						</ol>
+
+					</dd>
+
+						<dd class="dd ddexpand">
+							<table class="dltable"><tbody>
+								<tr>
+									<td valign="top" class="dltable_dt">*1:</td>
+
+									<td valign="top"><p class="p">è possibile controllare l&#39;indirizzo IP dello scanner sullo schermo tattile o sul pannello di comando dello scanner o nel Programma di impostazione dell&#39;indirizzo IP.</p>
+
+									</td>
+
+								</tr>
+								<tr>
+									<td valign="top" class="dltable_dt">*2:</td>
+
+									<td valign="top"><p class="p">Il formato dell&#39;indirizzo IPv4 è qui utilizzato come esempio.</p>
+
+											<p class="p">Per un indirizzo IPv6, è utilizzato il formato seguente.</p>
+
+											<p class="p">ZZZZ:ZZZZ:ZZZZ:ZZZZ:ZZZZ:ZZZZ:ZZZZ:ZZZZ</p>
+
+									</td>
+
+								</tr>
+							</tbody></table>
+
+						</dd>
+
+				
+			</dl>
+
+		</div>
+
+	</div>
+
+</article>
+          </div>
+        </div>
+        <!-- / #main -->
+      </div>
+      <!-- /main ==================================================================== -->
+
+      <!-- footer ==================================================================== -->
+      <footer id="footer">
+        <ul id="footerNavi" style="display:none"></ul>
+        <ul id="pagetop">
+          <li><a href="#top"><img src="../../images_sys/b_pagetop@2x.png" alt="TOP" width="44" height="44"/></a></li>
+        </ul>
+        <div class="tRight">
+        </div>
+        <p id="copyright"><small>&copy; PFU Limited 2021-2025</small></p>
+      </footer>
+      <!-- /footer ==================================================================== -->
+    </div>
+    <!-- /page -->
+  </body>
+</html>

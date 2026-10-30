@@ -1,0 +1,196 @@
+<!DOCTYPE html><html lang="ko-kr">
+  <head>
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+  	<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+    <meta name="docName" content=""/>
+    <meta name="rootrelpath" content="../../"/>
+    <link rel="stylesheet" href="../../css/ssseries.css"/>
+    <link rel="stylesheet" href="../../css/commonltr.css"/>
+    <link rel="stylesheet" href="../../css/common.css"/>
+    <link rel="stylesheet" href="../../css/common4pc.css"/>
+    <link rel="stylesheet" href="../../css/ditahtml.css"/>
+    <link rel="stylesheet" href="../../css/style.css"/>
+    <link rel="stylesheet" href="../../css/custom.css"/>
+    <script src="../../js/jquery-3.7.1.min.js"></script>
+    <script src="../../js/jquery.cookie-1.4.1.min.js"></script>
+    <script src="../../js/jquery.highlight-4.js"></script>
+    <script src="../../js/jquery.url.js"></script>
+    <script src="../../js/jquery.biggerlink.js"></script>
+    <script src="../../js/storage.js"></script>
+    <script src="../../js/apply_biggerlink.js"></script>
+    <script src="../../js/search.js"></script>
+    <script src="../js/tocdata.js"></script>
+    <script src="../js/searchdata.js"></script>
+    <script src="../js/commoninfo.js"></script>
+    <script src="../../js/script_common.js"></script>
+    <script src="../../js/script_content.js"></script>
+    <noscript>
+        <link rel="stylesheet" href="../../css/noscript.css"/>
+    </noscript>
+    <title>스캐너 버튼 설정 구성하기</title>
+  </head>
+  <body>
+    <div id="top">
+      <!-- header ==================================================================== -->
+      <header id="header" class="clearfix">
+        <h1>
+            
+        </h1>
+        <ul id="headerNaviSp">
+          <li id="backBtnSp"><img src="../../images_sys/b_back@2x.png" alt="BACK" width="37" height="38"/></li>
+          <li id="menuBtnSp"><img src="../../images_sys/b_menu@2x.png" alt="MENU" width="37" height="38"/></li>
+          <li id="searchBtnSp"><img src="../../images_sys/b_search@2x.png" alt="SEARCH" width="37" height="38"/></li>
+          <li id="modelSelectLst"><div id="selectModelLstSp"></div></li>
+        </ul>
+        <div class="clear spOnly"></div>
+        <ul id="pr" class="clearfix">
+          <li>
+            <input id="searchText" type="text" value="" class="searchBox" maxlength="200"/>
+            <input id="searchExecBtn" name="search" type="submit" value="검색" class="searchBtn"/>
+          </li>
+          <li id="suggestArea">
+            <div id="suggest"></div>
+          </li>
+        </ul>
+        <ul class="quickLink clearfix"><li xmlns="http://www.w3.org/1999/xhtml" class="li"><a class="xref" href="support.html">지원되는 스캐너 모델</a></li></ul>
+        <nav id="menuSp">
+          <ul id="languageNavi">
+            <li><a href="#">Language</a></li>
+          </ul>
+          <noscript>
+            <ul id="headerNavi" class="clearfix">
+                <li id="staticLinks"><a id="njsTableOfContents" style="display:inline" href="../../toc.html"><span>목차</span></a></li>
+            </ul>
+          </noscript>
+        </nav>
+      </header>
+      <!-- /header ==================================================================== -->
+
+      <!-- main ==================================================================== -->
+      <div id="areaMain" class="clearfix">
+        <div id="sub">
+          <div id="gNaviSp"></div>
+          <nav id="menuPc"></nav>
+        </div>
+        <!-- / #sub -->
+
+        <div id="main">
+          <div id="contents">
+            <div class="tRight">
+            </div>
+            <article>
+
+	<h1 xmlns="http://www.w3.org/1999/xhtml" class="title topictitle1" id="ariaid-title1">스캐너 버튼 설정 구성하기</h1>
+
+	
+	<div xmlns="http://www.w3.org/1999/xhtml" class="body taskbody"><div class="abstract">
+		<p class="shortdesc">이 단원에서는 Button Event Manager를 사용하고 스캐너 버튼을 누를 때 시작할 이미지 스캔 애플리케이션을 지정하는 방법을 설명합니다.</p>
+
+			<div class="note_box importantbox"><div class="note_title importanttitle"><span>중요</span></div><div class="note important">
+				<p class="p">스캐너 선택 도구를 사용하여 두 대 이상의 컴퓨터에서 동일한 스캐너를 선택한 경우 스캐너를 사용할 컴퓨터에서만 Button Event Manager 메뉴에서 [버튼 이벤트 감시]를 선택합니다.</p>
+
+			</div></div>
+
+			<div class="note_box tipbox"><div class="note_title tiptitle"><span>정보</span></div><div class="note tip">
+						<p class="p">Button Event Manager를 사용하여 스캐너의 스캔 버튼에 이미지 스캔 애플리케이션을 지정할 경우 다음 사항에 유의해 주십시오.</p>
+
+						<ul class="ul">
+							<li class="li"><p class="p">PaperStream ClickScan이 실행 중인 경우</p>
+
+									<p class="p">Button Event Manager로 스캔 버튼을 구성한 설정에 관계없이 스캐너의 스캔 버튼을 누르면 PaperStream ClickScan으로 스캔을 수행합니다.</p>
+
+									<p class="p">스캐너의 스캔 버튼을 눌러 다른 이미지 스캔 애플리케이션을 시작하려면 PaperStream ClickScan을 종료합니다. 자세한 내용은 PaperStream ClickScan 도움말을 참조해 주십시오.</p>
+
+							</li>
+
+							<li class="li"><p class="p">PaperStream ClickScan이 실행되지 않으며 PaperStream Capture를 설치한 경우</p>
+
+									<p class="p">PaperStream Capture이 스캐너의 스캔 버튼에 자동으로 설정됩니다.</p>
+
+												<p class="p">스캐너의 스캔 버튼에 PaperStream Capture를 설정하지 않은 경우 <a class="xref" href="dbox_buttonevent.html">[버튼 설정] 창</a>에서 [조작]의 [없음]이나 [다음 프로그램 실행]을 선택합니다.</p>
+
+							</li>
+
+						</ul>
+
+			</div></div>
+
+	</div>
+
+		<ol class="ol steps"><li class="li step stepexpand"><span class="ph cmd">스캐너를 네트워크에 연결합니다.</span>
+				<div class="itemgroup info">
+					<p class="p">자세한 내용은 스캐너 사용 설명서를 참조해 주십시오.</p>
+
+				</div>
+			</li>
+<li class="li step stepexpand"><span class="ph cmd">이미지 스캔 애플리케이션에서 선택할 스캐너를 활성화합니다.</span>
+				<div class="itemgroup info">
+					<p class="p">스캐너 선택 도구를 시작하고 네트워크에 연결된 스캐너에서 사용할 스캐너를 선택합니다.</p>
+
+					<p class="p">세부 사항은 <a class="xref" href="opr_cnf_scanner.html">사용할 스캐너 선택하기</a>를 참조해 주십시오.</p>
+
+				</div>
+			</li>
+<li class="li step stepexpand"><span class="ph cmd">이미지 스캔 애플리케이션에서 스캔 설정을 구성합니다.</span>
+				<div class="itemgroup info">
+					<p class="p">자세한 내용은 이미지 스캔 애플리케이션의 설명서를 참조해 주십시오.</p>
+
+				</div>
+			</li>
+<li class="li step stepexpand"><span class="ph cmd">Button Event Manager를 시작합니다.</span>
+				<div class="itemgroup info">
+					<p class="p">세부 사항은 <a class="xref" href="startup_buttoneventmanager.html">Button Event Manager 시작하기</a>를 참조해 주십시오.</p>
+
+					<p class="p">Button Event Manager가 시작하면 작업 표시줄 오른쪽 끝에 있는 알림 영역에 <img class="image" src="../common/../images/icon_ButtonEventManager.png" height="32" width="32" alt="Button Event Manager 아이콘"/>가 나타납니다.</p>
+
+				</div>
+			</li>
+<li class="li step stepexpand"><span class="ph cmd"><img class="image" src="../common/../images/icon_ButtonEventManager.png" height="32" width="32" alt="Button Event Manager 아이콘"/>를 마우스 오른쪽 버튼으로 클릭합니다.</span>
+				<div class="itemgroup info">
+					<p class="p"><a class="xref" href="dbox_buttoneventmanager.html">Button Event Manager 메뉴</a>가 나타납니다.</p>
+
+				</div>
+			</li>
+<li class="li step stepexpand"><span class="ph cmd">메뉴에서 [버튼 이벤트 감시]를 선택합니다.</span>
+			</li>
+<li class="li step stepexpand"><span class="ph cmd">메뉴에서 [버튼 설정 구성]을 클릭합니다.</span>
+				<div class="itemgroup info">
+					<p class="p"><a class="xref" href="dbox_buttonevent.html">[버튼 설정] 창</a>가 나타납니다.</p>
+
+				</div>
+			</li>
+<li class="li step stepexpand"><span class="ph cmd">스캐너 버튼을 누를 때 시작할 이미지 스캔 애플리케이션을 지정합니다.</span>
+				<div class="itemgroup info">
+					<p class="p">설정에 대한 자세한 내용은 <a class="xref" href="dbox_buttonevent.html">[버튼 설정] 창</a>를 참조해 주십시오.</p>
+
+				</div>
+			</li>
+<li class="li step stepexpand"><span class="ph cmd">[확인] 버튼을 클릭합니다.</span>
+			</li>
+</ol>
+
+	</div>
+
+</article>
+          </div>
+        </div>
+        <!-- / #main -->
+      </div>
+      <!-- /main ==================================================================== -->
+
+      <!-- footer ==================================================================== -->
+      <footer id="footer">
+        <ul id="footerNavi" style="display:none"></ul>
+        <ul id="pagetop">
+          <li><a href="#top"><img src="../../images_sys/b_pagetop@2x.png" alt="TOP" width="44" height="44"/></a></li>
+        </ul>
+        <div class="tRight">
+        </div>
+        <p id="copyright"><small>&copy; PFU Limited 2021-2025</small></p>
+      </footer>
+      <!-- /footer ==================================================================== -->
+    </div>
+    <!-- /page -->
+  </body>
+</html>

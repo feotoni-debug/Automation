@@ -1,0 +1,210 @@
+<!DOCTYPE html><html lang="en-us">
+  <head>
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+  	<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+    <meta name="docName" content=""/>
+    <meta name="rootrelpath" content="../../"/>
+    <link rel="stylesheet" href="../../css/ssseries.css"/>
+    <link rel="stylesheet" href="../../css/commonltr.css"/>
+    <link rel="stylesheet" href="../../css/common.css"/>
+    <link rel="stylesheet" href="../../css/common4pc.css"/>
+    <link rel="stylesheet" href="../../css/ditahtml.css"/>
+    <link rel="stylesheet" href="../../css/style.css"/>
+    <link rel="stylesheet" href="../../css/custom.css"/>
+    <script src="../../js/jquery-3.7.1.min.js"></script>
+    <script src="../../js/jquery.cookie-1.4.1.min.js"></script>
+    <script src="../../js/jquery.highlight-4.js"></script>
+    <script src="../../js/jquery.url.js"></script>
+    <script src="../../js/jquery.biggerlink.js"></script>
+    <script src="../../js/storage.js"></script>
+    <script src="../../js/apply_biggerlink.js"></script>
+    <script src="../../js/search.js"></script>
+    <script src="../js/tocdata.js"></script>
+    <script src="../js/searchdata.js"></script>
+    <script src="../js/commoninfo.js"></script>
+    <script src="../../js/script_common.js"></script>
+    <script src="../../js/script_content.js"></script>
+    <noscript>
+        <link rel="stylesheet" href="../../css/noscript.css"/>
+    </noscript>
+    <title>[IPv6 Settings] Window</title>
+  </head>
+  <body>
+    <div id="top">
+      <!-- header ==================================================================== -->
+      <header id="header" class="clearfix">
+        <h1>
+            
+        </h1>
+        <ul id="headerNaviSp">
+          <li id="backBtnSp"><img src="../../images_sys/b_back@2x.png" alt="BACK" width="37" height="38"/></li>
+          <li id="menuBtnSp"><img src="../../images_sys/b_menu@2x.png" alt="MENU" width="37" height="38"/></li>
+          <li id="searchBtnSp"><img src="../../images_sys/b_search@2x.png" alt="SEARCH" width="37" height="38"/></li>
+          <li id="modelSelectLst"><div id="selectModelLstSp"></div></li>
+        </ul>
+        <div class="clear spOnly"></div>
+        <ul id="pr" class="clearfix">
+          <li>
+            <input id="searchText" type="text" value="" class="searchBox" maxlength="200"/>
+            <input id="searchExecBtn" name="search" type="submit" value="Search" class="searchBtn"/>
+          </li>
+          <li id="suggestArea">
+            <div id="suggest"></div>
+          </li>
+        </ul>
+        <ul class="quickLink clearfix"><li xmlns="http://www.w3.org/1999/xhtml" class="li"><a class="xref" href="support.html">Supported Scanner Models</a></li></ul>
+        <nav id="menuSp">
+          <ul id="languageNavi">
+            <li><a href="#">Language</a></li>
+          </ul>
+          <noscript>
+            <ul id="headerNavi" class="clearfix">
+                <li id="staticLinks"><a id="njsTableOfContents" style="display:inline" href="../../toc.html"><span>Contents</span></a></li>
+            </ul>
+          </noscript>
+        </nav>
+      </header>
+      <!-- /header ==================================================================== -->
+
+      <!-- main ==================================================================== -->
+      <div id="areaMain" class="clearfix">
+        <div id="sub">
+          <div id="gNaviSp"></div>
+          <nav id="menuPc"></nav>
+        </div>
+        <!-- / #sub -->
+
+        <div id="main">
+          <div id="contents">
+            <div class="tRight">
+            </div>
+            <article>
+
+	<h1 xmlns="http://www.w3.org/1999/xhtml" class="title topictitle1" id="ariaid-title1">[IPv6 Settings] Window</h1>
+
+	
+	<div xmlns="http://www.w3.org/1999/xhtml" class="body conbody"><div class="abstract">
+		 <span class="shortdesc">Set an IPv6 address.</span>
+
+	</div>
+
+		<div class="section">
+			<dl class="dl">
+				
+					<dt class="dt dlterm">IPv6 Configuration</dt>
+
+					<dd class="dd"><p class="p">Select a method to set an IPv6 address for a scanner.</p>
+
+							<ul class="ul">
+								<li class="li"><p class="p">Auto</p>
+
+										<p class="p">An IP address is automatically assigned to a scanner from the DHCP server.</p>
+
+										<p class="p">This is the factory default setting.</p>
+</li>
+
+								<li class="li"><p class="p">Manual</p>
+
+									<p class="p">Assign an IP address manually.</p>
+</li>
+
+								<li class="li"><p class="p">Disable</p>
+
+									<p class="p">Disable the IPv6 address settings.</p>
+
+								</li>
+
+							</ul>
+
+				</dd>
+
+				
+				
+					<dt class="dt dlterm">[Receive RA packet] check box</dt>
+
+					<dd class="dd"><p class="p">This check box appears when you select [Manual] in [IPv6 Configuration].</p>
+
+							<p class="p">Select this to enable an IPv6 address that has been generated automatically.</p>
+
+							<p class="p">You can check an IPv6 address that has been generated automatically in [IP Address] under [IPv6] in the [IP Address Setting Tool] window.</p>
+
+							<p class="p">The check box is selected for the factory default setting.</p>
+
+					</dd>
+
+				
+				
+					<dt class="dt dlterm">IP Address</dt>
+
+					<dd class="dd"><p class="p">Enter an IP address for a scanner when you select [Manual] in [IPv6 Configuration].</p>
+
+					</dd>
+
+				
+				
+					<dt class="dt dlterm">Subnet prefix length</dt>
+
+					<dd class="dd"><p class="p">Enter a subnet prefix length for the IP address when you select [Manual] in [IPv6 Configuration].</p>
+
+							<p class="p">A value from 3 to 128 can be entered.</p>
+
+					</dd>
+
+				
+				
+					<dt class="dt dlterm">Default Gateway</dt>
+
+					<dd class="dd"><p class="p">Enter a default gateway for the IP address when you select [Manual] in [IPv6 Configuration].</p>
+
+					</dd>
+
+				
+				
+					<dt class="dt dlterm">[OK] button</dt>
+
+					<dd class="dd"><p class="p">Closes the window.</p>
+
+							<p class="p">The changes are applied to the [IP Address Setting Tool] window.</p>
+</dd>
+
+				
+				
+					<dt class="dt dlterm">[Cancel] button</dt>
+
+					<dd class="dd"><p class="p">Closes the window.</p>
+
+							<p class="p">The changes are not applied to the [IP Address Setting Tool] window.</p>
+</dd>
+
+				
+			</dl>
+
+
+
+		</div>
+
+	</div>
+
+</article>
+          </div>
+        </div>
+        <!-- / #main -->
+      </div>
+      <!-- /main ==================================================================== -->
+
+      <!-- footer ==================================================================== -->
+      <footer id="footer">
+        <ul id="footerNavi" style="display:none"></ul>
+        <ul id="pagetop">
+          <li><a href="#top"><img src="../../images_sys/b_pagetop@2x.png" alt="TOP" width="44" height="44"/></a></li>
+        </ul>
+        <div class="tRight">
+        </div>
+        <p id="copyright"><small>&copy; PFU Limited 2021-2025</small></p>
+      </footer>
+      <!-- /footer ==================================================================== -->
+    </div>
+    <!-- /page -->
+  </body>
+</html>

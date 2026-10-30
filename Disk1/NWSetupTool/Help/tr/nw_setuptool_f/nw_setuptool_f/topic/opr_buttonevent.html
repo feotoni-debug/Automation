@@ -1,0 +1,196 @@
+<!DOCTYPE html><html lang="tr-tr">
+  <head>
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+  	<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+    <meta name="docName" content=""/>
+    <meta name="rootrelpath" content="../../"/>
+    <link rel="stylesheet" href="../../css/ssseries.css"/>
+    <link rel="stylesheet" href="../../css/commonltr.css"/>
+    <link rel="stylesheet" href="../../css/common.css"/>
+    <link rel="stylesheet" href="../../css/common4pc.css"/>
+    <link rel="stylesheet" href="../../css/ditahtml.css"/>
+    <link rel="stylesheet" href="../../css/style.css"/>
+    <link rel="stylesheet" href="../../css/custom.css"/>
+    <script src="../../js/jquery-3.7.1.min.js"></script>
+    <script src="../../js/jquery.cookie-1.4.1.min.js"></script>
+    <script src="../../js/jquery.highlight-4.js"></script>
+    <script src="../../js/jquery.url.js"></script>
+    <script src="../../js/jquery.biggerlink.js"></script>
+    <script src="../../js/storage.js"></script>
+    <script src="../../js/apply_biggerlink.js"></script>
+    <script src="../../js/search.js"></script>
+    <script src="../js/tocdata.js"></script>
+    <script src="../js/searchdata.js"></script>
+    <script src="../js/commoninfo.js"></script>
+    <script src="../../js/script_common.js"></script>
+    <script src="../../js/script_content.js"></script>
+    <noscript>
+        <link rel="stylesheet" href="../../css/noscript.css"/>
+    </noscript>
+    <title>Bir Tarayıcıdaki Düğme Ayarlarını Yapılandırma</title>
+  </head>
+  <body>
+    <div id="top">
+      <!-- header ==================================================================== -->
+      <header id="header" class="clearfix">
+        <h1>
+            
+        </h1>
+        <ul id="headerNaviSp">
+          <li id="backBtnSp"><img src="../../images_sys/b_back@2x.png" alt="BACK" width="37" height="38"/></li>
+          <li id="menuBtnSp"><img src="../../images_sys/b_menu@2x.png" alt="MENU" width="37" height="38"/></li>
+          <li id="searchBtnSp"><img src="../../images_sys/b_search@2x.png" alt="SEARCH" width="37" height="38"/></li>
+          <li id="modelSelectLst"><div id="selectModelLstSp"></div></li>
+        </ul>
+        <div class="clear spOnly"></div>
+        <ul id="pr" class="clearfix">
+          <li>
+            <input id="searchText" type="text" value="" class="searchBox" maxlength="200"/>
+            <input id="searchExecBtn" name="search" type="submit" value="Arama" class="searchBtn"/>
+          </li>
+          <li id="suggestArea">
+            <div id="suggest"></div>
+          </li>
+        </ul>
+        <ul class="quickLink clearfix"><li xmlns="http://www.w3.org/1999/xhtml" class="li"><a class="xref" href="support.html">Desteklenen Tarayıcı Modelleri</a></li></ul>
+        <nav id="menuSp">
+          <ul id="languageNavi">
+            <li><a href="#">Language</a></li>
+          </ul>
+          <noscript>
+            <ul id="headerNavi" class="clearfix">
+                <li id="staticLinks"><a id="njsTableOfContents" style="display:inline" href="../../toc.html"><span>İçindekiler</span></a></li>
+            </ul>
+          </noscript>
+        </nav>
+      </header>
+      <!-- /header ==================================================================== -->
+
+      <!-- main ==================================================================== -->
+      <div id="areaMain" class="clearfix">
+        <div id="sub">
+          <div id="gNaviSp"></div>
+          <nav id="menuPc"></nav>
+        </div>
+        <!-- / #sub -->
+
+        <div id="main">
+          <div id="contents">
+            <div class="tRight">
+            </div>
+            <article>
+
+	<h1 xmlns="http://www.w3.org/1999/xhtml" class="title topictitle1" id="ariaid-title1">Bir Tarayıcıdaki Düğme Ayarlarını Yapılandırma</h1>
+
+	
+	<div xmlns="http://www.w3.org/1999/xhtml" class="body taskbody"><div class="abstract">
+		<p class="shortdesc">Bu bölümde Button Event Manager&#39;ın nasıl kullanılacağı ve bir tarayıcıdaki bir düğmeye basıldığında başlatılacak bir görüntü tarama uygulamasının nasıl belirleneceği açıklanmaktadır.</p>
+
+			<div class="note_box importantbox"><div class="note_title importanttitle"><span>DİKKAT</span></div><div class="note important">
+				<p class="p">Tarayıcı Seçme Aracı kullanılarak aynı tarayıcı birden fazla bilgisayar tarafından seçilmişse, sadece tarayıcıyı birlikte kullanmak istediğiniz bilgisayar üzerindeki Button Event Manager menüsünde [Tuş olayını izle] seçeneğini seçin.</p>
+
+			</div></div>
+
+			<div class="note_box tipbox"><div class="note_title tiptitle"><span>İPUCU</span></div><div class="note tip">
+						<p class="p">Bir tarayıcıdaki tarama düğmesi için bir görüntü tarama uygulaması belirlemek üzere Button Event Manager&#39;ı kullanıyorsanız aşağıdakilere dikkat edin.</p>
+
+						<ul class="ul">
+							<li class="li"><p class="p">PaperStream ClickScan çalışırken</p>
+
+									<p class="p">Button Event Manager ile tarama düğmesi için yapılandırılmış olan ayarlardan bağımsız olarak, bir tarayıcı üzerindeki tarama düğmesine basıldığında PaperStream ClickScan ile bir tarama gerçekleştirilir.</p>
+
+									<p class="p">Başka bir görüntü tarama uygulaması başlatmak için (bir tarayıcı üzerindeki tarama düğmesine basarak) PaperStream ClickScan&#39;den çıkın. Ayrıntılı bilgi için PaperStream ClickScan Yardım dosyasına bakın.</p>
+
+							</li>
+
+							<li class="li"><p class="p">PaperStream ClickScan çalışmadığında ve PaperStream Capture kurulu olduğunda</p>
+
+									<p class="p">PaperStream Capture bir tarayıcıdaki tarama düğmesi için otomatik olarak ayarlanır.</p>
+
+												<p class="p">Bir tarayıcı üzerindeki tarama düğmesi için PaperStream Capture ayarı yapmamanız halinde <a class="xref" href="dbox_buttonevent.html">[Tuş ayarları] Penceresi</a> içinde [İşlem] için [Yok] veya [Aşağıdaki programı çalıştır] öğesini seçin.</p>
+
+							</li>
+
+						</ul>
+
+			</div></div>
+
+	</div>
+
+		<ol class="ol steps"><li class="li step stepexpand"><span class="ph cmd">Bir tarayıcıyı bir ağa bağlayın.</span>
+				<div class="itemgroup info">
+					<p class="p">Ayrıntılar için tarayıcının İşletmen Kılavuzu&#39;na bakın.</p>
+
+				</div>
+			</li>
+<li class="li step stepexpand"><span class="ph cmd">Bir görüntü tarama uygulamasında seçilecek tarayıcıyı etkinleştirin.</span>
+				<div class="itemgroup info">
+					<p class="p">Tarayıcı Seçme Aracı&#39;nı başlatın ve bir ağdaki tarayıcılar arasından kullanılacak tarayıcıyı seçin.</p>
+
+					<p class="p">Ayrıntılar için, bkz. <a class="xref" href="opr_cnf_scanner.html">Kullanmak İstediğiniz bir Tarayıcıyı Seçme</a>.</p>
+
+				</div>
+			</li>
+<li class="li step stepexpand"><span class="ph cmd">Görüntü tarama uygulamasında tarama ayarlarını yapılandırın.</span>
+				<div class="itemgroup info">
+					<p class="p">Ayrıntılar için görüntü tarama uygulamasının kılavuzuna bakın.</p>
+
+				</div>
+			</li>
+<li class="li step stepexpand"><span class="ph cmd">Button Event Manager&#39;ı başlatın.</span>
+				<div class="itemgroup info">
+					<p class="p">Ayrıntılar için, bkz. <a class="xref" href="startup_buttoneventmanager.html">Button Event Manager&#39;ı başlatma</a>.</p>
+
+					<p class="p">Button Event Manager başlatıldığında görev çubuğunun en sağında bulunan bildirim alanında <img class="image" src="../common/../images/icon_ButtonEventManager.png" height="32" width="32" alt="Button Event Manager simgesi"/> gösterilir.</p>
+
+				</div>
+			</li>
+<li class="li step stepexpand"><span class="ph cmd"><img class="image" src="../common/../images/icon_ButtonEventManager.png" height="32" width="32" alt="Button Event Manager simgesi"/> öğesine sağ tıklayın.</span>
+				<div class="itemgroup info">
+					<p class="p"><a class="xref" href="dbox_buttoneventmanager.html">Button Event Manager&#39;ın menüsü</a> gösterilir.</p>
+
+				</div>
+			</li>
+<li class="li step stepexpand"><span class="ph cmd">Menüde [Tuş olayını izle] seçeneğini seçin.</span>
+			</li>
+<li class="li step stepexpand"><span class="ph cmd">Menüde [Tuş ayarlarını yapılandır] öğesine tıklayın.</span>
+				<div class="itemgroup info">
+					<p class="p"><a class="xref" href="dbox_buttonevent.html">[Tuş ayarları] Penceresi</a> gösterilir.</p>
+
+				</div>
+			</li>
+<li class="li step stepexpand"><span class="ph cmd">Tarayıcıdaki bir düğmeye basıldığında başlatılacak bir görüntü tarama uygulaması belirleyin.</span>
+				<div class="itemgroup info">
+					<p class="p">Ayarlar hakkında ayrıntılar için bkz <a class="xref" href="dbox_buttonevent.html">[Tuş ayarları] Penceresi</a>.</p>
+
+				</div>
+			</li>
+<li class="li step stepexpand"><span class="ph cmd">[Tamam]&#39;a tıklayın.</span>
+			</li>
+</ol>
+
+	</div>
+
+</article>
+          </div>
+        </div>
+        <!-- / #main -->
+      </div>
+      <!-- /main ==================================================================== -->
+
+      <!-- footer ==================================================================== -->
+      <footer id="footer">
+        <ul id="footerNavi" style="display:none"></ul>
+        <ul id="pagetop">
+          <li><a href="#top"><img src="../../images_sys/b_pagetop@2x.png" alt="TOP" width="44" height="44"/></a></li>
+        </ul>
+        <div class="tRight">
+        </div>
+        <p id="copyright"><small>&copy; PFU Limited 2021-2025</small></p>
+      </footer>
+      <!-- /footer ==================================================================== -->
+    </div>
+    <!-- /page -->
+  </body>
+</html>

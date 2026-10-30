@@ -1,0 +1,340 @@
+# -*- coding: utf-8 -*-
+# File: test_refine.py
+
+# Copyright 2025 Dr. Janis Meyer. All rights reserved.
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+#     http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+
+"""
+Unit tests for table segmentation refinement and related utility functions.
+
+This module contains test cases for validating the behavior of utility
+functions and classes associated with table segmentation refinement. The
+tests include scenarios for rectangular cell tiling, generating HTML
+representation of tables, and integration testing for the table segmentation
+refinement service.
+
+Tests are parametrized for various inputs and expected outputs. Some tests
+are conditionally skipped if the required dependencies are not available.
+"""
+
+from typing import List, Set, Tuple
+
+import pytest
+
+from dd_core.datapoint import AnnotationRef, ContainerAnnotation, Image, ReferencePayload
+from dd_core.utils.file_utils import networkx_available
+from dd_core.utils.object_types import CellKey, CellLabel, LayoutLabel, TableKey
+from deepdoctection.pipe.refine import (
+    TableSegmentationRefinementService,
+    _html_table,
+    connected_component_tiles,
+    generate_rectangle_tiling,
+    rectangle_cells,
+)
+
+
+@pytest.mark.skipif(not networkx_available(), reason="networkx not installed")
+@pytest.mark.parametrize(
+    "tiles_to_cells,expected_rectangle_cells_list",
+    [
+        (
+            [
+                ((1, 1), "a"),
+                ((1, 2), "b"),
+                ((1, 3), "b"),
+                ((2, 1), "c"),
+                ((2, 2), "d"),
+                ((2, 3), "e"),
+                ((3, 1), "f"),
+                ((3, 2), "f"),
+                ((3, 3), "f"),
+            ],
+            [{"d"}, {"e"}, {"f"}, {"b"}, {"a"}, {"c"}],
+        ),
+        (
+            [
+                ((1, 1), "a"),
+                ((1, 2), "b"),
+                ((1, 3), "b"),
+                ((2, 1), "c"),
+                ((2, 2), "d"),
+                ((2, 3), "e"),
+                ((2, 1), "f"),
+                ((2, 2), "f"),
+                ((2, 3), "f"),
+            ],
+            [{"a"}, {"f", "c", "d", "e"}, {"b"}],
+        ),
+        (
+            [
+                ((1, 1), "a"),
+                ((1, 2), "b"),
+                ((1, 2), "c"),
+                ((2, 1), "d"),
+                ((2, 2), "e"),
+                ((2, 2), "c"),
+                ((2, 1), "f"),
+                ((2, 2), "f"),
+                ((2, 2), "f"),
+            ],
+            [{"a", "c", "d", "e", "b", "f"}],
+        ),
+    ],
+)
+def test_rectangle_cell_tiling(
+    tiles_to_cells: List[Tuple[Tuple[int, int], str]], expected_rectangle_cells_list: List[Set[str]]
+) -> None:
+    """
+    Test that from a list of cell tiling one correctly receives a list of sets of cells that must be merged
+    in order to have only rectangular shaped cells
+    """
+    # Act
+    connected_components, tile_to_cell_dict = connected_component_tiles(tiles_to_cells)
+    rectangle_tiling = generate_rectangle_tiling(connected_components)
+    rectangle_cells_list = rectangle_cells(rectangle_tiling, tile_to_cell_dict)
+
+    # Assert
+    for el in expected_rectangle_cells_list:
+        assert el in rectangle_cells_list
+
+    for el in rectangle_cells_list:
+        assert el in expected_rectangle_cells_list
+
+
+@pytest.mark.parametrize(
+    "table_list,cells_ann_list,number_of_rows,number_of_cols,expected_html_list",
+    [
+        (
+            [
+                (1, [(1, 1, 1, 1), (1, 2, 1, 2)]),
+                (2, [(2, 1, 2, 1), (2, 2, 1, 1), (2, 3, 1, 1)]),
+                (3, [(3, 2, 1, 1), (3, 3, 1, 1)]),
+                (4, [(4, 1, 1, 1), (4, 2, 1, 2)]),
+            ],
+            [(1, ["a", "b"]), (2, ["c", "d", "e"]), (3, ["f", "g"]), (4, ["h", "i"])],
+            4,
+            3,
+            [
+                "<table>",
+                "<tr>",
+                "<td>",
+                AnnotationRef(annotation_id="a", image_id=None),
+                "</td>",
+                "<td colspan=2>",
+                AnnotationRef(annotation_id="b", image_id=None),
+                "</td>",
+                "</tr>",
+                "<tr>",
+                "<td rowspan=2>",
+                AnnotationRef(annotation_id="c", image_id=None),
+                "</td>",
+                "<td>",
+                AnnotationRef(annotation_id="d", image_id=None),
+                "</td>",
+                "<td>",
+                AnnotationRef(annotation_id="e", image_id=None),
+                "</td>",
+                "</tr>",
+                "<tr>",
+                "<td>",
+                AnnotationRef(annotation_id="f", image_id=None),
+                "</td>",
+                "<td>",
+                AnnotationRef(annotation_id="g", image_id=None),
+                "</td>",
+                "</tr>",
+                "<tr>",
+                "<td>",
+                AnnotationRef(annotation_id="h", image_id=None),
+                "</td>",
+                "<td colspan=2>",
+                AnnotationRef(annotation_id="i", image_id=None),
+                "</td>",
+                "</tr>",
+                "</table>",
+            ],
+        ),
+        (
+            [(1, [(1, 1, 3, 1), (1, 2, 1, 2)]), (2, [(2, 2, 1, 1), (2, 3, 1, 1)]), (3, [(3, 2, 1, 2)])],
+            [(1, ["a", "b"]), (2, ["c", "d"]), (3, ["e"])],
+            3,
+            3,
+            [
+                "<table>",
+                "<tr>",
+                "<td rowspan=3>",
+                AnnotationRef(annotation_id="a", image_id=None),
+                "</td>",
+                "<td colspan=2>",
+                AnnotationRef(annotation_id="b", image_id=None),
+                "</td>",
+                "</tr>",
+                "<tr>",
+                "<td>",
+                AnnotationRef(annotation_id="c", image_id=None),
+                "</td>",
+                "<td>",
+                AnnotationRef(annotation_id="d", image_id=None),
+                "</td>",
+                "</tr>",
+                "<tr>",
+                "<td colspan=2>",
+                AnnotationRef(annotation_id="e", image_id=None),
+                "</td>",
+                "</tr>",
+                "</table>",
+            ],
+        ),
+        (
+            [(1, [(1, 2, 1, 1), (1, 3, 1, 2)]), (2, [(2, 3, 2, 1)]), (3, [(3, 1, 2, 2)]), (4, [(4, 4, 1, 1)])],
+            [(1, ["a", "b"]), (2, ["c"]), (3, ["d"]), (4, ["e"])],
+            4,
+            4,
+            [
+                "<table>",
+                "<tr>",
+                "<td>",
+                "</td>",
+                "<td>",
+                AnnotationRef(annotation_id="a", image_id=None),
+                "</td>",
+                "<td colspan=2>",
+                AnnotationRef(annotation_id="b", image_id=None),
+                "</td>",
+                "</tr>",
+                "<tr>",
+                "<td>",
+                "</td>",
+                "<td>",
+                "</td>",
+                "<td rowspan=2>",
+                AnnotationRef(annotation_id="c", image_id=None),
+                "</td>",
+                "<td>",
+                "</td>",
+                "</tr>",
+                "<tr>",
+                "<td rowspan=2 colspan=2>",
+                AnnotationRef(annotation_id="d", image_id=None),
+                "</td>",
+                "<td>",
+                "</td>",
+                "</tr>",
+                "<tr>",
+                "<td>",
+                "</td>",
+                "<td>",
+                AnnotationRef(annotation_id="e", image_id=None),
+                "</td>",
+                "</tr>",
+                "</table>",
+            ],
+        ),
+    ],
+)
+def test_generate_html_string(
+    table_list: List[Tuple[int, List[Tuple[int, int, int, int]]]],
+    cells_ann_list: List[Tuple[int, List[str]]],
+    number_of_rows: int,
+    number_of_cols: int,
+    expected_html_list: List[str],
+) -> None:
+    """
+    test _html_table
+    """
+    # Act
+    html_list = _html_table(table_list, cells_ann_list, number_of_rows, number_of_cols)
+
+    # Assert
+    assert html_list == expected_html_list
+
+
+class TestTableSegmentationRefinementService:
+    """
+    Test TableSegmentationRefinementService (only integrated)
+    """
+
+    def setup_method(self) -> None:
+        """
+        setup necessary components
+        """
+
+        self.table_segmentation_refinement_service = TableSegmentationRefinementService(
+            [LayoutLabel.TABLE, LayoutLabel.TABLE_ROTATED],
+            [
+                LayoutLabel.CELL,
+                CellLabel.COLUMN_HEADER,
+                CellLabel.PROJECTED_ROW_HEADER,
+                CellLabel.SPANNING,
+                CellLabel.ROW_HEADER,
+            ],
+        )
+
+    @pytest.mark.skipif(not networkx_available(), reason="networkx not installed")
+    def test_integration_pipeline_component(self, dp_image_fully_segmented_fully_tiled: Image) -> None:
+        """
+        Integration test for pipeline component
+        """
+
+        # Arrange
+        dp = dp_image_fully_segmented_fully_tiled
+
+        # Act
+        dp = self.table_segmentation_refinement_service.pass_datapoint(dp)
+
+        # Assert
+        table = dp.get_annotation(category_names=LayoutLabel.TABLE)[0]
+        assert table.image is not None
+        summary = table.image.summary
+        summaries_table = [
+            summary.get_sub_category(TableKey.NUMBER_OF_ROWS).category_id,
+            summary.get_sub_category(TableKey.NUMBER_OF_COLUMNS).category_id,
+            summary.get_sub_category(TableKey.MAX_ROW_SPAN).category_id,
+            summary.get_sub_category(TableKey.MAX_COL_SPAN).category_id,
+        ]
+        summary_html = table.get_sub_category(TableKey.HTML)
+        cells = dp.get_annotation(category_names=self.table_segmentation_refinement_service.cell_names)
+        row_numbers = {cell.get_sub_category(CellKey.ROW_NUMBER).category_id for cell in cells}
+        col_numbers = {cell.get_sub_category(CellKey.COLUMN_NUMBER).category_id for cell in cells}
+        row_spans = {cell.get_sub_category(CellKey.ROW_SPAN).category_id for cell in cells}
+        col_spans = {cell.get_sub_category(CellKey.COLUMN_SPAN).category_id for cell in cells}
+
+        assert len(cells) == 4
+        assert row_numbers == {1, 2}
+        assert col_numbers == {1, 2}
+        assert row_spans == {1}
+        assert col_spans == {1}
+        assert summaries_table == [2, 2, 1, 1]
+        assert isinstance(summary_html, ContainerAnnotation)
+        assert isinstance(summary_html.value, ReferencePayload)
+        assert summary_html.value.content == [
+            "<table>",
+            "<tr>",
+            "<td>",
+            AnnotationRef(annotation_id="c549a3d9-f375-3053-835d-134d861ea05d", image_id=None),
+            "</td>",
+            "<td>",
+            AnnotationRef(annotation_id="71c50671-a5c7-314c-9434-8d2c8a2c9f37", image_id=None),
+            "</td>",
+            "</tr>",
+            "<tr>",
+            "<td>",
+            AnnotationRef(annotation_id="ea962ebc-e983-3256-8f28-b48c7d055937", image_id=None),
+            "</td>",
+            "<td>",
+            AnnotationRef(annotation_id="9d237e37-3e77-3892-8fd9-db6366251346", image_id=None),
+            "</td>",
+            "</tr>",
+            "</table>",
+        ]

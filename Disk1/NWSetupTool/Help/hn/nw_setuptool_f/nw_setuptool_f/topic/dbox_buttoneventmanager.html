@@ -1,0 +1,192 @@
+<!DOCTYPE html><html lang="ko-kr">
+  <head>
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+  	<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+    <meta name="docName" content=""/>
+    <meta name="rootrelpath" content="../../"/>
+    <link rel="stylesheet" href="../../css/ssseries.css"/>
+    <link rel="stylesheet" href="../../css/commonltr.css"/>
+    <link rel="stylesheet" href="../../css/common.css"/>
+    <link rel="stylesheet" href="../../css/common4pc.css"/>
+    <link rel="stylesheet" href="../../css/ditahtml.css"/>
+    <link rel="stylesheet" href="../../css/style.css"/>
+    <link rel="stylesheet" href="../../css/custom.css"/>
+    <script src="../../js/jquery-3.7.1.min.js"></script>
+    <script src="../../js/jquery.cookie-1.4.1.min.js"></script>
+    <script src="../../js/jquery.highlight-4.js"></script>
+    <script src="../../js/jquery.url.js"></script>
+    <script src="../../js/jquery.biggerlink.js"></script>
+    <script src="../../js/storage.js"></script>
+    <script src="../../js/apply_biggerlink.js"></script>
+    <script src="../../js/search.js"></script>
+    <script src="../js/tocdata.js"></script>
+    <script src="../js/searchdata.js"></script>
+    <script src="../js/commoninfo.js"></script>
+    <script src="../../js/script_common.js"></script>
+    <script src="../../js/script_content.js"></script>
+    <noscript>
+        <link rel="stylesheet" href="../../css/noscript.css"/>
+    </noscript>
+    <title>Button Event Manager 메뉴</title>
+  </head>
+  <body>
+    <div id="top">
+      <!-- header ==================================================================== -->
+      <header id="header" class="clearfix">
+        <h1>
+            
+        </h1>
+        <ul id="headerNaviSp">
+          <li id="backBtnSp"><img src="../../images_sys/b_back@2x.png" alt="BACK" width="37" height="38"/></li>
+          <li id="menuBtnSp"><img src="../../images_sys/b_menu@2x.png" alt="MENU" width="37" height="38"/></li>
+          <li id="searchBtnSp"><img src="../../images_sys/b_search@2x.png" alt="SEARCH" width="37" height="38"/></li>
+          <li id="modelSelectLst"><div id="selectModelLstSp"></div></li>
+        </ul>
+        <div class="clear spOnly"></div>
+        <ul id="pr" class="clearfix">
+          <li>
+            <input id="searchText" type="text" value="" class="searchBox" maxlength="200"/>
+            <input id="searchExecBtn" name="search" type="submit" value="검색" class="searchBtn"/>
+          </li>
+          <li id="suggestArea">
+            <div id="suggest"></div>
+          </li>
+        </ul>
+        <ul class="quickLink clearfix"><li xmlns="http://www.w3.org/1999/xhtml" class="li"><a class="xref" href="support.html">지원되는 스캐너 모델</a></li></ul>
+        <nav id="menuSp">
+          <ul id="languageNavi">
+            <li><a href="#">Language</a></li>
+          </ul>
+          <noscript>
+            <ul id="headerNavi" class="clearfix">
+                <li id="staticLinks"><a id="njsTableOfContents" style="display:inline" href="../../toc.html"><span>목차</span></a></li>
+            </ul>
+          </noscript>
+        </nav>
+      </header>
+      <!-- /header ==================================================================== -->
+
+      <!-- main ==================================================================== -->
+      <div id="areaMain" class="clearfix">
+        <div id="sub">
+          <div id="gNaviSp"></div>
+          <nav id="menuPc"></nav>
+        </div>
+        <!-- / #sub -->
+
+        <div id="main">
+          <div id="contents">
+            <div class="tRight">
+            </div>
+            <article>
+
+	<h1 xmlns="http://www.w3.org/1999/xhtml" class="title topictitle1" id="ariaid-title1">Button Event Manager 메뉴</h1>
+
+	
+	<div xmlns="http://www.w3.org/1999/xhtml" class="body conbody"><div class="abstract">
+		 <span class="shortdesc">작업 표시줄 오른쪽 끝에 있는 알림 영역에서 <img class="image" src="../common/../images/icon_ButtonEventManager.png" height="32" width="32" alt="Button Event Manager 아이콘"/>을 마우스 오른쪽 버튼으로 클릭하면 다음 메뉴 항목이 표시됩니다.</span>
+
+	</div>
+
+		<div class="section">
+			<dl class="dl">
+				
+					<dt class="dt dlterm">버튼 이벤트 감시</dt>
+
+					<dd class="dd"><p class="p">스캐너 버튼의 누름 동작을 감지합니다.</p>
+
+						<p class="p">선택하지 않으면 스캐너 버튼을 누를 때 <a class="xref" href="dbox_buttonevent.html">[버튼 설정] 창</a>에서 지정한 이미지 스캔 애플리케이션이 시작되지 않습니다.</p>
+
+					<div class="note_box importantbox"><div class="note_title importanttitle"><span>중요</span></div><div class="note important">
+						<p class="p">스캐너 선택 도구를 사용하여 두 대 이상의 컴퓨터에서 동일한 스캐너를 선택한 경우 스캐너를 사용할 컴퓨터에서만 [버튼 이벤트 감시]를 선택합니다.</p>
+
+					</div></div>
+
+					<div class="note_box tipbox"><div class="note_title tiptitle"><span>정보</span></div><div class="note tip">
+						<p class="p">스캐너의 스캔 버튼을 눌러 Software Operation Panel을 시작하려면 [버튼 이벤트 감시]를 선택합니다.</p>
+
+						<p class="p">스캐너의 스캔 버튼을 누를 때 스캐너가 작동하는 방식에 대한 자세한 내용은 스캐너 사용 설명서를 참조해 주십시오.</p>
+
+					</div></div>
+
+					</dd>
+
+				
+				
+					<dt class="dt dlterm">로그인 시에 이 도구 시작</dt>
+
+					<dd class="dd"><p class="p">선택하면 Windows에 로그인할 때 Button Event Manager가 시작합니다.</p>
+
+							<p class="p">Button Event Manager가 시작하면 작업 표시줄 오른쪽 끝에 있는 알림 영역에 알림 메시지가 나타납니다.</p>
+
+					</dd>
+
+				
+				
+					<dt class="dt dlterm">버튼 설정 구성</dt>
+
+					<dd class="dd"><p class="p">스캐너 버튼을 누를 때 시작할 이미지 스캔 애플리케이션을 지정합니다.</p>
+
+						<p class="p"><a class="xref" href="dbox_buttonevent.html">[버튼 설정] 창</a>가 나타납니다.</p>
+
+					</dd>
+
+				
+				
+					<dt class="dt dlterm">도움말</dt>
+
+					<dd class="dd"><p class="p">도움말을 표시합니다.</p>
+
+					</dd>
+
+				
+				
+					<dt class="dt dlterm">정보</dt>
+
+					<dd class="dd"><p class="p">버전 정보를 표시합니다.</p>
+
+					</dd>
+
+				
+				
+					<dt class="dt dlterm">끝내기</dt>
+
+					<dd class="dd"><p class="p">Button Event Manager를 종료합니다.</p>
+
+					</dd>
+
+				
+			</dl>
+
+		</div>
+
+	</div>
+
+<div xmlns="http://www.w3.org/1999/xhtml" class="related-links">
+<ul class="ullinks">
+<li class="link ulchildlink"><a href="../../nw_setuptool_f/topic/dbox_buttonevent.html">[버튼 설정] 창</a><br/>
+</li>
+</ul>
+</div></article>
+          </div>
+        </div>
+        <!-- / #main -->
+      </div>
+      <!-- /main ==================================================================== -->
+
+      <!-- footer ==================================================================== -->
+      <footer id="footer">
+        <ul id="footerNavi" style="display:none"></ul>
+        <ul id="pagetop">
+          <li><a href="#top"><img src="../../images_sys/b_pagetop@2x.png" alt="TOP" width="44" height="44"/></a></li>
+        </ul>
+        <div class="tRight">
+        </div>
+        <p id="copyright"><small>&copy; PFU Limited 2021-2025</small></p>
+      </footer>
+      <!-- /footer ==================================================================== -->
+    </div>
+    <!-- /page -->
+  </body>
+</html>

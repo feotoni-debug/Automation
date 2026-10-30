@@ -1,0 +1,196 @@
+<!DOCTYPE html><html lang="zh-cn">
+  <head>
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+  	<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+    <meta name="docName" content=""/>
+    <meta name="rootrelpath" content="../../"/>
+    <link rel="stylesheet" href="../../css/ssseries.css"/>
+    <link rel="stylesheet" href="../../css/commonltr.css"/>
+    <link rel="stylesheet" href="../../css/common.css"/>
+    <link rel="stylesheet" href="../../css/common4pc.css"/>
+    <link rel="stylesheet" href="../../css/ditahtml.css"/>
+    <link rel="stylesheet" href="../../css/style.css"/>
+    <link rel="stylesheet" href="../../css/custom.css"/>
+    <script src="../../js/jquery-3.7.1.min.js"></script>
+    <script src="../../js/jquery.cookie-1.4.1.min.js"></script>
+    <script src="../../js/jquery.highlight-4.js"></script>
+    <script src="../../js/jquery.url.js"></script>
+    <script src="../../js/jquery.biggerlink.js"></script>
+    <script src="../../js/storage.js"></script>
+    <script src="../../js/apply_biggerlink.js"></script>
+    <script src="../../js/search.js"></script>
+    <script src="../js/tocdata.js"></script>
+    <script src="../js/searchdata.js"></script>
+    <script src="../js/commoninfo.js"></script>
+    <script src="../../js/script_common.js"></script>
+    <script src="../../js/script_content.js"></script>
+    <noscript>
+        <link rel="stylesheet" href="../../css/noscript.css"/>
+    </noscript>
+    <title>为扫描仪上的按钮配置设置</title>
+  </head>
+  <body>
+    <div id="top">
+      <!-- header ==================================================================== -->
+      <header id="header" class="clearfix">
+        <h1>
+            
+        </h1>
+        <ul id="headerNaviSp">
+          <li id="backBtnSp"><img src="../../images_sys/b_back@2x.png" alt="BACK" width="37" height="38"/></li>
+          <li id="menuBtnSp"><img src="../../images_sys/b_menu@2x.png" alt="MENU" width="37" height="38"/></li>
+          <li id="searchBtnSp"><img src="../../images_sys/b_search@2x.png" alt="SEARCH" width="37" height="38"/></li>
+          <li id="modelSelectLst"><div id="selectModelLstSp"></div></li>
+        </ul>
+        <div class="clear spOnly"></div>
+        <ul id="pr" class="clearfix">
+          <li>
+            <input id="searchText" type="text" value="" class="searchBox" maxlength="200"/>
+            <input id="searchExecBtn" name="search" type="submit" value="搜索" class="searchBtn"/>
+          </li>
+          <li id="suggestArea">
+            <div id="suggest"></div>
+          </li>
+        </ul>
+        <ul class="quickLink clearfix"><li xmlns="http://www.w3.org/1999/xhtml" class="li"><a class="xref" href="support.html">支持的扫描仪机型</a></li></ul>
+        <nav id="menuSp">
+          <ul id="languageNavi">
+            <li><a href="#">Language</a></li>
+          </ul>
+          <noscript>
+            <ul id="headerNavi" class="clearfix">
+                <li id="staticLinks"><a id="njsTableOfContents" style="display:inline" href="../../toc.html"><span>目录</span></a></li>
+            </ul>
+          </noscript>
+        </nav>
+      </header>
+      <!-- /header ==================================================================== -->
+
+      <!-- main ==================================================================== -->
+      <div id="areaMain" class="clearfix">
+        <div id="sub">
+          <div id="gNaviSp"></div>
+          <nav id="menuPc"></nav>
+        </div>
+        <!-- / #sub -->
+
+        <div id="main">
+          <div id="contents">
+            <div class="tRight">
+            </div>
+            <article>
+
+	<h1 xmlns="http://www.w3.org/1999/xhtml" class="title topictitle1" id="ariaid-title1">为扫描仪上的按钮配置设置</h1>
+
+	
+	<div xmlns="http://www.w3.org/1999/xhtml" class="body taskbody"><div class="abstract">
+		<p class="shortdesc">本节将说明如何使用Button Event Manager并指定按下扫描仪上的按钮后启动的图像扫描应用程序。</p>
+
+			<div class="note_box importantbox"><div class="note_title importanttitle"><span>注意</span></div><div class="note important">
+				<p class="p">在多台电脑上使用扫描仪选择工具选择了相同的扫描仪时，请仅在想要使用扫描仪的电脑上选择Button Event Manager菜单中的[监视按钮事件]。</p>
+
+			</div></div>
+
+			<div class="note_box tipbox"><div class="note_title tiptitle"><span>提示</span></div><div class="note tip">
+						<p class="p">如果使用Button Event Manager为扫描仪上的扫描按钮指定图像扫描应用程序，请注意以下要点。</p>
+
+						<ul class="ul">
+							<li class="li"><p class="p">当PaperStream ClickScan正在运行时</p>
+
+									<p class="p">无论使用Button Event Manager为扫描按钮配置的设置为何，按下扫描仪上的扫描按钮时均会通过PaperStream ClickScan执行扫描。</p>
+
+									<p class="p">若要（通过按下扫描仪上的扫描按钮）启动其他图像扫描应用程序，请退出PaperStream ClickScan。详情请参阅PaperStream ClickScan帮助。</p>
+
+							</li>
+
+							<li class="li"><p class="p">当PaperStream ClickScan未在运行且安装了PaperStream Capture时</p>
+
+									<p class="p">自动为扫描仪上的扫描按钮设置PaperStream Capture。</p>
+
+												<p class="p">如果您不为扫描仪上的扫描按钮设置PaperStream Capture，请针对<a class="xref" href="dbox_buttonevent.html">[按钮设置]窗口</a>中的[操作]选择[无效]或[运行以下程序]。</p>
+
+							</li>
+
+						</ul>
+
+			</div></div>
+
+	</div>
+
+		<ol class="ol steps"><li class="li step stepexpand"><span class="ph cmd">将扫描仪连接至网络。</span>
+				<div class="itemgroup info">
+					<p class="p">详情请参阅扫描仪的操作指南。</p>
+
+				</div>
+			</li>
+<li class="li step stepexpand"><span class="ph cmd">在图像扫描应用程序中启用将要选择的扫描仪。</span>
+				<div class="itemgroup info">
+					<p class="p">启动扫描仪选择工具并从已连接到网络的扫描仪中选择要使用的扫描仪。</p>
+
+					<p class="p">详情请参阅<a class="xref" href="opr_cnf_scanner.html">选择想要使用的扫描仪</a>。</p>
+
+				</div>
+			</li>
+<li class="li step stepexpand"><span class="ph cmd">在图像扫描应用程序中配置扫描设置。</span>
+				<div class="itemgroup info">
+					<p class="p">详情请参阅图像扫描应用程序的指南。</p>
+
+				</div>
+			</li>
+<li class="li step stepexpand"><span class="ph cmd">启动Button Event Manager。</span>
+				<div class="itemgroup info">
+					<p class="p">详情请参阅<a class="xref" href="startup_buttoneventmanager.html">启动Button Event Manager</a>。</p>
+
+					<p class="p">启动Button Event Manager后，<img class="image" src="../common/../images/icon_ButtonEventManager.png" height="32" width="32" alt="Button Event Manager图标"/>将出现在位于任务栏最右端的通知区域中。</p>
+
+				</div>
+			</li>
+<li class="li step stepexpand"><span class="ph cmd">右键单击<img class="image" src="../common/../images/icon_ButtonEventManager.png" height="32" width="32" alt="Button Event Manager图标"/>。</span>
+				<div class="itemgroup info">
+					<p class="p">将出现<a class="xref" href="dbox_buttoneventmanager.html">Button Event Manager菜单</a>。</p>
+
+				</div>
+			</li>
+<li class="li step stepexpand"><span class="ph cmd">选择菜单上的[监视按钮事件]。</span>
+			</li>
+<li class="li step stepexpand"><span class="ph cmd">单击菜单上的[配置按钮设置]。</span>
+				<div class="itemgroup info">
+					<p class="p">将出现<a class="xref" href="dbox_buttonevent.html">[按钮设置]窗口</a>。</p>
+
+				</div>
+			</li>
+<li class="li step stepexpand"><span class="ph cmd">指定要在按下扫描仪上的按钮后启动的图像扫描应用程序。</span>
+				<div class="itemgroup info">
+					<p class="p">有关设置的详情，请参阅<a class="xref" href="dbox_buttonevent.html">[按钮设置]窗口</a>。</p>
+
+				</div>
+			</li>
+<li class="li step stepexpand"><span class="ph cmd">单击[确定]按钮。</span>
+			</li>
+</ol>
+
+	</div>
+
+</article>
+          </div>
+        </div>
+        <!-- / #main -->
+      </div>
+      <!-- /main ==================================================================== -->
+
+      <!-- footer ==================================================================== -->
+      <footer id="footer">
+        <ul id="footerNavi" style="display:none"></ul>
+        <ul id="pagetop">
+          <li><a href="#top"><img src="../../images_sys/b_pagetop@2x.png" alt="TOP" width="44" height="44"/></a></li>
+        </ul>
+        <div class="tRight">
+        </div>
+        <p id="copyright"><small>&copy; PFU Limited 2021-2025</small></p>
+      </footer>
+      <!-- /footer ==================================================================== -->
+    </div>
+    <!-- /page -->
+  </body>
+</html>
